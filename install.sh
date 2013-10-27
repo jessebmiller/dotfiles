@@ -15,7 +15,7 @@ dir=~/dotfiles/files
 olddir=~/.dotbackups
 
 # list of files/folders to symlink in homedir
-files=".zshrc .emacs.d"
+files="zshrc emacs.d"
 
 # create olddir in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
