@@ -5,7 +5,7 @@
 # in ~/dotfiles/files
 
 # instal oh-my-zsh
-echo "installing oh-my-zsh"
+echo "installing oh-my-zsh solarized"
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 # dotfiles directory
