@@ -4,6 +4,10 @@
 # This script creates symlinks from the home directory to any desired dotfiles
 # in ~/dotfiles/files
 
+# instal oh-my-zsh
+echo "installing oh-my-zsh"
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 # dotfiles directory
 dir=~/dotfiles/files
 
@@ -11,7 +15,7 @@ dir=~/dotfiles/files
 olddir=~/.dotbackups
 
 # list of files/folders to symlink in homedir
-files=".zshrc .oh-my-zsh .emacs.d"
+files=".zshrc .emacs.d"
 
 # create olddir in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
