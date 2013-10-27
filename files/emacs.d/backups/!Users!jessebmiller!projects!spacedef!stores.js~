@@ -1,0 +1,1 @@
+gameStore = new Meteor.Collection('games');

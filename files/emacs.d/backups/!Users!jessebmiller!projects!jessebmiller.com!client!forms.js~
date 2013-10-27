@@ -1,0 +1,4 @@
+Template.articleForm.events({'submit': function (submitEvent) {
+    console.log(this);
+    console.log(submitEvent);
+}

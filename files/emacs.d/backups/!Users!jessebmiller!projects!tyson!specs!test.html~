@@ -1,0 +1,6 @@
+   <head>
+     <title>Tyson Spec Runner</title>
+   </head>
+   <body>
+     {{> specRunner }}
+   </body>

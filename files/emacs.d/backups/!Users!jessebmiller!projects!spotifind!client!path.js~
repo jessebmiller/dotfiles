@@ -1,0 +1,3 @@
+TYSON.pathHandlers.recent = function () {
+    return '<h1>fucking cool</h1>';
+}

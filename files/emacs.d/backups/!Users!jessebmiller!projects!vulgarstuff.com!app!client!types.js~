@@ -1,0 +1,33 @@
+function simpleViewable(type, templateName) {
+    Tyson.Viewable(type, {
+        views: function () {
+            return {
+                view: Template[templateName]
+            };
+        }
+    });
+}
+
+Tyson.Viewable(Image, {
+    views: function () {
+        return {
+            view: Template.image,
+            summary: Template.imageSummary
+        };
+    }
+});
+
+Tyson.Viewable(VulgarProduct, {
+    views: function () {
+        return {
+            view: Template.vulgarProduct
+        };
+    }
+});
+
+simpleViewable(ProductImage, "productImage");
+simpleViewable(Text, 'text');
+simpleViewable(Heading, 'heading');
+simpleViewable(Subheading, 'subheading');
+simpleViewable(Paragraph, 'paragraph');
+simpleViewable(Promotion, "promotion");

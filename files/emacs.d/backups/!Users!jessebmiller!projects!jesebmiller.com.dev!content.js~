@@ -1,0 +1,73 @@
+DeliciousLink = Constructor(function (data) { this.data = data; });
+InstagramPhoto = Constructor(function (data) { this.data = data; });
+
+/* typeClass View where
+ * views: {key: view function}
+ * views shoudl return a dictionary of view functions
+ */
+var instanceEJSONExternalData = function (typeName, type) {
+    /* given an external data type, create the EJSONable class insance
+     * this.data must be fully JSON compatable
+     */
+    Tyson.EJSONable(type, {
+        clone: function () { return type(this.data); },
+        equals: function (other) {
+            return EJSON.stringify(this.data) === EJSON.stringify(other.data);
+        },
+        typeName: function () { return typeName; },
+        toJSONValue: function () { return { data: this.data }; }
+    });
+    EJSON.addType(typeName, function (value) {
+        console.log(value);
+        return type(value.data);
+    });
+};
+
+var instanceFunctorExternalData = function (type) {
+    /* given an external data type create the Functor class instance */
+    Functor(type, {
+        fmap: function (f, a) { return type(fmap(f, a.data)); }
+    });
+};
+
+
+Tyson.Viewable(DeliciousLink, {
+    views: function () {
+        return {
+            view: Template.deliciousLink
+        };
+    }
+});
+instanceEJSONExternalData("DeliciousLink", DeliciousLink);
+instanceFunctorExternalData(DeliciousLink);
+
+Tyson.Viewable(InstagramPhoto, {
+    views: function () {
+        return {
+            view: Template.instagramPhoto,
+            summary: Template.instagramSummary
+        };
+    }
+});
+instanceEJSONExternalData("InstagramPhoto", InstagramPhoto);
+instanceFunctorExternalData(InstagramPhoto);
+
+/*
+var makeExternalDataTypeDef = function (typeName) {
+    return {
+        type: typeName,
+        view: Template[typeName],
+        unit: function () { return { type: typeName, data: {} }; }
+    };
+};
+
+var instagram = makeExternalDataTypeDef("instagram");
+var delicious = makeExternalDataTypeDef("delicious");
+
+instagram.summary = Template.instagramSummary;
+
+Tyson.registerContentTypes([
+    instagram,
+    delicious
+]);
+*/

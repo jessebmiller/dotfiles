@@ -1,0 +1,7 @@
+<body>
+  {{{ thisView }}}
+</body>
+
+<template name = "instruction">
+  <h1>{{ text }}</h1>
+</template>

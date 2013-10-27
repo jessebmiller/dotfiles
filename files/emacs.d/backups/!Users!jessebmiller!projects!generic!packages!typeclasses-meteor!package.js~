@@ -1,0 +1,16 @@
+Package.describe({
+    summary: "Fun with Typeclasses, from loop/recur, updated for Meteor"
+});
+
+Package.on_use(function (api) {
+    api.add_files(["support/functiona.js",
+                   "support/prelude.js",
+                   "support/types.js",
+                   "monoid.js",
+                   "functor.js",
+                   "applicitage.js"],
+                  ["client", "server"]);
+    api.export(["Functor", "fmap",
+                "Applicative", "ap", "pure", "liftA",
+
+});

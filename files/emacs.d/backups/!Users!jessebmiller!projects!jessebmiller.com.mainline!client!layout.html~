@@ -1,0 +1,27 @@
+<head>
+  <title>Jesse B Miller</title>
+</head>
+
+<body>
+  {{> header }}
+  {{> content }}
+  {{> footer }}
+</body>
+
+<template name="header">
+  <header>
+    <h1>Jesse B Miller</h1>
+  </header>
+</template>
+
+<template name="content">
+  <div>
+    {{{ thisView trivialGrid }}}
+  </div>
+</template>
+
+<template name="footer">
+  <footer>
+    <h6>&copy 2013 Jesse B Miller</h6>
+  </footer>
+</template>

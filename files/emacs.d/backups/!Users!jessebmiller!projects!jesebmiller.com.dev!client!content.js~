@@ -1,0 +1,82 @@
+function makeViewable(type, viewTemplateNamePairs) {
+    /* makes a type viewable given a list of view names to tempalte names
+     * assumes that there is a template in some html document with the
+     * given name
+     */
+    var views = {};
+    _.each(viewTemplateNamePairs, function (pair) {
+        views[pair[0]] = Template[pair[1]];
+    });
+    Tyson.Viewable(type, {
+        views: function () { return views; }
+    });
+}
+
+function DataEJSON (type, typeName) {
+    /* Implement EJSON for type assuming the following
+     * the type has only one field called 'data'
+     * data is a JSON value
+     */
+    type.prototype.clone = function () { return type(this.tata); };
+    type.prototype.equals = function (other) {
+        return EJSON.stringify(this) === EJSON.stringify(other);
+    };
+    type.prototype.typeName = function () { return typeName; };
+    type.prototype.toJSONValue = function () { return this.data; };
+    EJSON.addType(typeName, function (value) { return type(value); });
+}
+
+DeliciousLink = Constructor(function (data) { this.data = data; });
+DataEJSON(DeliciousLink, 'DeliciousLink');
+makeViewable(DeliciousLink, [
+    ['view', 'deliciousLink']
+]);
+
+InstagramPhoto = Constructor(function (data) { this.data = data; });
+DataEJSON(InstagramPhoto, 'InstagramPhoto');
+makeViewable(InstagramPhoto, [
+    ['view', 'instagramPhoto'],
+    ['summary', 'instagramSummary']
+]);
+
+Author = Constructor(function (fullName, url) {
+    this.fullName = fullName;
+    this.url = url;
+});
+Author.prorotype.clone = function () {
+    return Author(this.fullName, this.url);
+};
+Author.prototype.equals = function (other) {
+    return EJSON.stringify(this) === EJSON.stringify(other);
+}
+Author.prototype.typeName = function () { return "Author"; };
+Author.prototype.toJSONValue = function () { return this; };
+EJSON.addType(Author, function (value) {
+    return Author(value.fullName, value.url);
+});
+makeViewable(Author, [
+    ['view', 'author']
+]);
+
+Post = Constructor(function (content, author, createdAt, updatedAt) {
+    this.content = content;
+    this.author = author;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+});
+Post.prototype.clone = function () {
+    return Post(this.content, this.author, this.createdAt, this.updatedAt);
+};
+Post.prototype.equals = function () {
+    return EJSON.stringify(this) === EJSON.stringify(other);
+};
+Post.prototype.typeName = function () { return "Post"; };
+Post.prototype.toJSONValue = function () {
+    return {
+        content: this.content,
+        author: this.author,
+        createdAt: this.createdAt,
+        updatedAt: this.updatedAt
+    };
+};
+

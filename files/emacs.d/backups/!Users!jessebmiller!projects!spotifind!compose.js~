@@ -1,0 +1,13 @@
+TYSON.pathHandlers.show_content = function (contentCursor) {
+    /* takes a cursor from tyson's Content collection and returns the rendered 
+     * content
+     */
+    return Template.contentList({'contents': contentCursor});
+}
+
+TYSON.pathHandlers.type = function (typeName) {
+    /* takes a string type name and returns a collection of all content of
+     * that type
+     */
+    return Content.find({'type': typeName});
+}

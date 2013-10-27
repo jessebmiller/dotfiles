@@ -1,0 +1,19 @@
+Tyson.registerContentTypes([
+    {
+        type: "baseGrid",
+        unit: function () {
+            return {
+                type: "baseGrid",
+                year: "2013",
+                title: "Jesse B. Miller",
+                subtitle: "Entrepreneur, Designer, Engineer",
+                children: []
+            };
+        },
+        cons: function (g, o) {
+            g.children.push(o);
+            return g;
+        },
+        view: Template.baseGrid
+    }
+]);

@@ -1,0 +1,10 @@
+function maybe (a) {
+    return a || { type: "message", text: "none of these here things" };
+}
+
+Tyson.registerControllers([
+    ["sample", function (typeName) {
+        /* String -> Viewable a */
+        
+    }]
+]);

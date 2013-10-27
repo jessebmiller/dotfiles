@@ -1,0 +1,5 @@
+Template.navigation.theseNavLinks = function () {
+    /* return all nav links in order for this page */
+    query = Session.get('navLinks') || {};
+    return NavigationLinks.find(query);
+}

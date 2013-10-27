@@ -1,0 +1,26 @@
+/* to run all specs with space-daisy, create an html file with this in it.
+
+   <head>
+     <title>Tyson Spec Runner</title>
+   </head>
+   <body>
+     {{> specRunner }}
+   </body>
+
+*/
+
+describe ("Typed Content", function () {
+
+    beforeEach(function () {
+
+    });
+
+    afterEach(function () {
+
+    });
+
+    it("{{{ renderThisContent }}} matches template by type-name", function () {
+        
+    }
+
+});

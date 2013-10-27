@@ -1,0 +1,5 @@
+describe('a test to see if jasmine in fact works', function () {
+    it{'DOES!!!', function () {
+        expect(true).toBe(true);
+    }
+}

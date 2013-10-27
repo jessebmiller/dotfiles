@@ -1,0 +1,20 @@
+Tyson.registerControllers([
+    /* product :: (image, item) -> Product */
+    ["product", VulgarProduct],
+    /* image :: String -> Image */
+    ["image", function (id) {
+        return Images.findOne({_id: id});
+    }],
+    /* shirt :: (String, String) -> Item */
+    ["shirt", function (size, color) {
+        return Item(Shirt(size, color));
+    }],
+    /* mug :: String -> Item */
+    ["mug", function (color) {
+        return Item(Mug(color));
+    }],
+    /* poster :: Item */
+    ["poster", function () {
+        return Item(Poster());
+    }]
+]);

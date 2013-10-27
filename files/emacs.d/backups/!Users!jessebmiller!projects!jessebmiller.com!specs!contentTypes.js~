@@ -1,0 +1,5 @@
+describe('Content type definitions', function () {
+    it('needs to have a test written for each content type', function () {
+        expect('test').toBe('written');
+    });
+});

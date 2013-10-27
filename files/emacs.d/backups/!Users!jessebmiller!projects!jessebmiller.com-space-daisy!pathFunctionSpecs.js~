@@ -1,0 +1,5 @@
+describe('show path function', function () {
+    it('renders a cursor of content', function () {
+        
+    });
+});

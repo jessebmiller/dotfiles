@@ -1,0 +1,13 @@
+Content = new Meteor.Collection("content");
+
+if (Meteor.isClient) {
+    Tyson.registerContentType({
+        name: "image",
+        view: Template.image
+    });
+
+    Tyson.registerContentType({
+        name: "instruction",
+        view: Template.instruction
+    });
+}

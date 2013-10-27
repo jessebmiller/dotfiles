@@ -1,0 +1,5 @@
+Tyson.registerControllers([
+    ["one", function (typeName) {
+        return Content.findOne({ type: typeName });
+    }]
+]);

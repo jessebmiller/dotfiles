@@ -1,0 +1,23 @@
+<head>
+  <title>Jesse B Miller</title>
+</head>
+
+<body>
+  {{{ thisView "baseGrid" }}}
+</body>
+
+<template name="baseGrid">
+  <header>
+    <h1>{{ title }}</h1>
+    <h2>{{ subtitle }}</h2>
+  </header>
+  <div class="content">
+    {{# each children }}
+    {{{ viewContent this }}}
+    {{/ each }}
+  </div>
+  <footer>
+    <h6> &copy {{ year }} </h6>
+    <h6> built by Jesse B Miller on Tyson </h6>
+  </footer>
+</template>

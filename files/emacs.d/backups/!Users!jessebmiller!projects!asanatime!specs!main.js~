@@ -1,0 +1,5 @@
+describe('Some BDD tests', function () {
+    it('should be written', function () {
+        expect('them').toBe('written');
+    });
+});

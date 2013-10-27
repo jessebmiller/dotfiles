@@ -1,0 +1,188 @@
+Tyson = (function () {
+
+    /*
+     * content type definitions
+     * central storage of content type classes.
+     * each type class MUST implement the following
+     *  view: a -> HTML (Viewable)
+     *
+     * structural types MUST implement the following
+     *  cons: a -> [a] -> [a] - like haskell's cons (:)
+     *  unit: a
+     *
+     * and MAY implement other custom functors like so
+     *  summarise: a -> Viewable b
+     */
+
+    var registry = {
+        contentTypeDefs: {},
+        controllers: {}
+    };
+
+    function getRegistry (name) { return registry[name]; }
+    function setRegistry (name, state) { registry[name] = state; }
+
+    function register (name, key, value) {
+        registry[name][key] = value;
+    }
+
+    function registerNamed (registryName, namedObj) {
+        register(registryName, namedObj.name, namedObj);
+    }
+
+    function getPathList () {
+        var path = window.location.pathname;
+        return _.filter(path.split('/'), function (elm) { return elm; });
+    }
+
+    function fmap (functor, obj) {
+        /* apply the obj's type's functor to the obj */
+        return registry.contentTypeDefs[obj.type][functor](obj);
+    }
+
+    function unit (typeName) {
+        return registry.contentTypeDefs[typeName].unit;
+    }
+
+    function cons (structural, obj) {
+        return registry.contentTypeDefs[structural.type].cons(structural, obj);
+    }
+
+    function makeTrivialController(returnValue) {
+        /* return a controller who's function returns the returnValue
+           and takes no arguements
+         */
+        var trivialController = {
+            func: function () { return returnValue; },
+            args: 0
+        };
+        return trivialController;
+    }
+
+    function getFunc (controllerName) {
+        /* return the function registered for this controller or the trivial
+           function for this value
+         */
+        var controller = registry.controllers[controllerName]
+                || makeTrivialController(controllerName);
+        var func = wu.autoCurry(controller.func, controller.args);
+        func.args = controller.args;
+        return func;
+    }
+
+    var nest = '';
+    var level = '    ';
+
+    function composeController (path) {
+         /* curry functions that need arguements and compose the resulting
+            functions
+          */
+
+        function curryPathFunc (head, tail) {
+            /* curry into the head function enough of the tail to make it a 1
+             arguement function (being sure to recursivly compose the tail)
+             */
+            nest += level;
+            console.log(nest, 'currying', head.args, tail);
+            var composedTail = composePathFuncs(_.head(tail), _.tail(tail));
+            console.log(nest, 'C composed tail', composedTail[0](), composedTail);
+            var curriedHead = head(_.head(composedTail)());
+            curriedHead.args = head.args - 1;
+            composedTail = _.tail(composedTail);
+            if (curriedHead.args > 1) {
+                console.log(nest, "C args", curriedHead.args, "curring again");
+                return curryPathFunc(curriedHead, composedTail);
+            }
+            console.log(nest, "C returning", [curriedHead].concat(composedTail));
+            nest = nest.substr(level.length);
+            return [curriedHead].concat(composedTail);
+        }
+
+        function composePathFuncs (head, tail) {
+            nest += level;
+            console.log(nest, "composing", head.args, tail);
+            if (head.args > 1) {
+                console.log(nest, "more than one arg", head.args, tail);
+                var curried = curryPathFunc(head, tail);
+                nest = nest.substr(level.length);
+                return composePathFuncs(_.head(curried), _.tail(curried));
+            } else if (head.args === 1) {
+                var composedTail;
+                var composed;
+                if (tail.length > 1) {
+                    console.log(nest, 'one arg', head.args, tail);
+                    composedTail = composePathFuncs(_.head(tail),
+                                                        _.tail(tail));
+                    console.log(nest, 'composed tail', composedTail);
+                    composed = head(_.head(composedTail));
+                    console.log(nest, "returning", [composed].concat(_.tail(composedTail)));
+                    nest = nest.substr(level.length);
+                    return [composed].concat(_.tail(composedTail));
+                } else {
+                    nest = nest.substr(level.length);
+                    composed = head(tail[0]);
+                    return [composed];
+                }
+            } else if (head.args === 0) {
+                console.log(nest, 'zero args', head(), tail);
+                if(tail.length > 0) {
+                    console.log(nest, "has tail");
+                    var argList = [head].concat(composePathFuncs(
+                                         _.head(tail),
+                                         _.tail(tail)));
+                    console.log(nest, "returning", argList);
+                    nest = nest.substr(level.length);
+                    return argList;
+                } else {
+                    console.log(nest, "no tail");
+                    console.log(nest, 'returning', head());
+                    nest = nest.substr(level.length);
+                    return [head()];
+                }
+                console.log(nest, "passed through");
+            } else {
+                throw 'argument length not a Natural number';
+            }
+        }
+
+        var headFunc = getFunc(_.head(path));
+        var tailFuncs = wu(_.tail(path)).map(getFunc).toArray();
+        return function () {
+            var controller = composePathFuncs(headFunc, tailFuncs);
+            console.log('returning', controller[0]);
+            return controller;
+        };
+    }
+
+    return {
+        /* register and registry convienience functions */
+        register: register,
+        _getContentTypeDefs: wu.curry(getRegistry, "contentTypeDefs"),
+        _getControllers: wu.curry(getRegistry, "controllers"),
+        __clearContentTypeDefs__: wu.curry(setRegistry, "contentTypeDefs", {}),
+        __clearControllers__: wu.curry(setRegistry, "controllers", {}),
+        registerContentType: wu.curry(registerNamed, "contentTypeDefs"),
+        registerController: function (name, func, args) {
+            registerNamed("controllers", {
+                name: name,
+                func: func,
+                args: args || func.length
+            });
+        },
+
+        /* fmap and functor aliases */
+        fmap: fmap,
+        view: function (obj) { return Tyson.fmap('view', obj); },
+
+        /* model and functions */
+        model: function (baseGridName, path) {
+            console.log(path);
+            var controller = composeController(path);
+            var baseGrid;
+            baseGridName = baseGridName || "trivialGrid";
+            baseGrid = unit(baseGridName);
+            return Tyson.cons(baseGrid, controller());
+        },
+        cons: cons
+    };
+}());

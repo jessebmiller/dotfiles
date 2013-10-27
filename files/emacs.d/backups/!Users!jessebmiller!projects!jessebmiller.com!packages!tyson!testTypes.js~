@@ -1,0 +1,9 @@
+Text = function (text) {
+    this.text = text;
+    return this;
+}
+
+TextLink = function (url, text) {
+    this.url = url;
+    
+}

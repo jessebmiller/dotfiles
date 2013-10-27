@@ -1,0 +1,8 @@
+-- playing with types and type classes
+
+-- trying to come up with a recursive deffinition of html grid layouts
+data Grid = [Row]
+
+data Row = [Column]
+
+data Column = Nul | Grid

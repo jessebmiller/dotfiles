@@ -1,0 +1,20 @@
+describe('The URL Router', function () {
+
+    TYSON.pathHandlers = {
+        paragraph: function (result) { return '<p>' + result + '</p>' },
+        section: function (result) { return '<div>' + result + '<div>' }
+    }
+
+    beforeEach(function () {
+        if (window.location.pathname !== '/section/paragraph/text') {
+            window.location.pathname = '/section/paragraph/text';
+        }
+    });
+
+    it('sets the path session variable to an aray of the path elements',
+       function () {
+           expect(Session.get('path'))
+               .toEqual(["section", "paragraph", "text"]);
+    });
+});
+

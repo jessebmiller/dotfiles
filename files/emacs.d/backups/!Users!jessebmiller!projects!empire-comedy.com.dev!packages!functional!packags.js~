@@ -1,0 +1,7 @@
+Package.describe({
+    summary: "functional js"
+});
+
+Pachkage.on_use(function (api) {
+    api.add+files('functional.js', 'client');
+});

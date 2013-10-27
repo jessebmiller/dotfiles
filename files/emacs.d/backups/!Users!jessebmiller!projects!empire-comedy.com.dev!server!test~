@@ -1,0 +1,14 @@
+post
+  youTubeEmbed
+    videoId: H7diRAT2U1Q
+  end
+  youTubeEmbed
+    videoId: unga-c3rqOI
+  end
+  event
+    name: Stop in this weekend to see one of the best Chicago comedians, Marty DeRosa!
+    eventType: Stand Up
+    url: http://comedybarchicago.com/archives/1905
+    time: Aug 16th & 17th at 8pm and 10pm
+  end  
+end

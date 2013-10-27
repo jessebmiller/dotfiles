@@ -1,0 +1,78 @@
+/* jasmine spec runner styles */
+.symbolSummary { position: fixed;
+                 top: 10px;
+                 background: white;
+                 padding-bottom: 5px;
+}
+
+/* basic site wide resets */
+ul { list-style-type: none; }
+
+#mainContainer { margin-bottom: 100px; }
+
+#headerContainer {
+    @border-bottom: 28px;
+    @border-top: (@border-bottom * 1.62);
+    background: red;
+    border-top: @border-top solid black;
+    border-bottom: @border-bottom solid black;
+}
+
+/* type */
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,400);
+
+@base-em: 16px;
+@base-line-height: 20px;
+@header-font: 'LeagueGothicRegular';
+@title-font: 'TeXGyreAdventorRegular';
+@text-font: 'TeXGyreAdventorRegular';
+
+.base-type {
+    font-size: @base-em;
+    line-height: @base-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: @title-font, sans-serif;
+    font-weight: 200;
+    text-transform: capatalize;
+}
+h1 { font-size: 4em; line-height: (@base-line-height * 4)}
+h2 { font-size: 4em; line-height: (@base-line-height * 4)}
+h3 { font-size: 4em; line-height: (@base-line-height * 4)}
+h4 { font-size: 3em; line-height: (@base-line-height * 3)}
+h5 { font-size: 2em; line-height: (@base-line-height * 2)}
+h6 { font-size: 2em; line-height: (@base-line-height * 2)}
+p {
+    .base-type;
+    font-family: @text-font, sans-serif;
+}
+
+header {
+    font-family: @header-font, sans-serif;
+    font-size: 8em;
+    line-height: (@base-line-height * 3);
+    color: @dark;
+    .low { font-size: .68em; letter-spacing: -2px;}
+    .mid { font-size: .85em; letter-spacing: -4px;}
+    .tall { letter-spacing: -2px; }
+    .big {
+        font-size: 2em;
+        letter-spacing: -6px;
+        position: relative;
+        top: 40px;
+    }
+}
+
+/* color */
+@dark: #000;
+@highlight: #f00;
+
+html { color: @dark; }
+
+a { color: (@highlight / 3) }
+a:hover { color: @highlight }
+
+footer {
+    border-top: 1px solid @dark;
+}

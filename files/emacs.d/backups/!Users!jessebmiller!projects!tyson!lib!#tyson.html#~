@@ -1,0 +1,5 @@
+<template name="templateList">
+  {{#each templates }}
+  {{{ renderTemplate }}}
+  {{/each }}
+</template>

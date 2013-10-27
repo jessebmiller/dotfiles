@@ -1,0 +1,9 @@
+define("Content", function () {
+
+    quote = {
+    quote.prototype = TYSON.Content
+
+    it("Maps valid types to the content collection", function () {
+        
+    });
+});

@@ -1,0 +1,3 @@
+describe("A jasmine test in a meteor app", function () {
+	
+    });

@@ -1,0 +1,16 @@
+describe('The renderThisPage Handlebars helper' function () {
+    if('composes functions based on the url path', function () {
+
+        TYSON.pathHandlers = {
+            h1: function (str) {
+                return "<h1 id='h1123'>" + str + "</h1>";
+            },
+            span: function (str) {
+                return "<span id='span123'>" + str + "</span>";
+            }
+        }
+        
+        expect(Session.get('path').join('/')).toBe(window.location.pathname);
+
+    });
+});

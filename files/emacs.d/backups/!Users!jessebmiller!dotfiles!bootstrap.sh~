@@ -1,0 +1,10 @@
+#! /bin/bash
+
+files = files/*
+
+for f in $files
+do
+    echo "procesing $f"
+    mv ../$f _files.backup
+    ln files/$f ../$f
+done

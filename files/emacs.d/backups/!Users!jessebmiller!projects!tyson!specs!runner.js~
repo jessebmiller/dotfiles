@@ -1,0 +1,4 @@
+TYSON.pathHandlers.add = function (a, b) {
+    /* path handler arguements are passed as strings */
+    return parseInt(a, 10) + parseInt(b, 10);
+}

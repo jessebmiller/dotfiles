@@ -1,0 +1,350 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/client/" . "style/")
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/packages/" . "caffeine/")
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/" . "client/")
+ ("/Users/jessebmiller/projects/vulgarstuff.com/" . "app/")
+ ("/Users/jessebmiller/projects/generic/packages/" . "spaceRock/")
+ ("/Users/jessebmiller/projects/generic/" . "packages/")
+ ("/Users/jessebmiller/projects/sync/" . "instagramSync/")
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/packages/" . "tyson/")
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/" . "client/")
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/" . "tyson/")
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/packages/" . "tyson/")
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/" . "client/")
+ ("/Users/jessebmiller/projects/slideshow/packages/" . "tyson/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/packages/" . "tyson/")
+ ("/Users/jessebmiller/projects/spotifind/lib/tyson/" . "lib/")
+ ("/Users/jessebmiller/projects/spotifind/lib/" . "tyson/")
+ ("/Users/jessebmiller/projects/spacedef/game/" . "client/")
+ ("/Users/jessebmiller/projects/spacedef/interface/client/" . "css/")
+ ("/Users/jessebmiller/projects/spacedef/interface/" . "client/")
+ ("/Users/jessebmiller/projects/tyson/lib/" . "space-daisy/")
+ ("/Users/jessebmiller/projects/spacedef/lib/tyson/" . "lib/")
+ ("/Users/jessebmiller/projects/spacedef/lib/" . "tyson/")
+ ("/Users/jessebmiller/projects/spacedef/" . "client/")
+ ("/Users/jessebmiller/projects/slideshow/lib/" . "css/")
+ ("/Users/jessebmiller/projects/slideshow/" . "packages/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/public/" . "leagueGothic/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/client/" . "css/")
+ ("/Users/jessebmiller/projects/spotifind/modules/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/spotifind/modules/" . "tyson/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/lib/" . "jasmine-1.3.1/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/" . "client/")
+ ("/Users/jessebmiller/projects/asanatime/public/" . "css/")
+ ("/Users/jessebmiller/projects/asanatime/lib/" . "external/")
+ ("/Users/jessebmiller/projects/asanatime/" . "templates/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/" . "space-daisy/")
+ ("/Users/jessebmiller/projects/jessebmiller.com-space-daisy/jessebmiller.com/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com-space-daisy/jessebmiller.com/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com-space-daisy/" . "jessebmiller.com/")
+ ("/Users/jessebmiller/projects/tyson-space-daisy/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/tyson-space-daisy/" . "tyson/")
+ ("/Users/jessebmiller/projects/spotifind-space-daisy/server/lib/" . "jasmine-node/")
+ ("/Users/jessebmiller/projects/spotifind-space-daisy/server/" . "lib/")
+ ("/Users/jessebmiller/projects/spotifind-space-daisy/src/spotifind/" . "client/")
+ ("/Users/jessebmiller/projects/spotifind-space-daisy/src/" . "spotifind/")
+ ("/Users/jessebmiller/projects/spotifind-space-daisy/" . "server/")
+ ("/Users/jessebmiller/projects/space-daisy/src/jessebmiller.com/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/space-daisy/src/jessebmiller.com/" . "client/")
+ ("/Users/jessebmiller/projects/space-daisy/src/" . "jessebmiller.com/")
+ ("/Users/jessebmiller/projects/space-daisy/" . "src/")
+ ("/Users/jessebmiller/projects/spotifind/tests/" . "specs/")
+ ("/Users/jessebmiller/projects/spotifind/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/tyson/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/tyson/" . "client/")
+ ("/Users/jessebmiller/projects/tyson/tyson/" . "lib/")
+ ("/Users/jessebmiller/projects/tyson/" . "client/")
+ ("/Users/jessebmiller/Downloads/spotifind/" . "routes/")
+ ("/Users/jessebmiller/Downloads/" . "spotifind/")
+ ("/Users/jessebmiller/projects/gurls/" . "shows/")
+ ("/Users/jessebmiller/projects/jecms/static/" . "css/")
+ ("/Users/jessebmiller/projects/jecms/" . "static/")
+ ("/" . "Users/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/static/" . "js/")
+ ("/Users/jessebmiller/projects/jessebmiller.com/" . "client/")
+ ("/Users/jessebmiller/projects/JasonMichaelPaul/jmppresents/" . "jmppresents/")
+ ("/Users/jessebmiller/projects/JasonMichaelPaul/" . "jmppresents/")
+ ("/Users/jessebmiller/projects/" . "vulgarstuff.com/")
+ ("/Users/" . "jessebmiller/")
+ ("/Users/jessebmiller/.solarized/" . "emacs-colors-solarized/")
+ ("/Users/jessebmiller/" . "projects/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/client/style/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/server/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/client/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/public/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/packages/caffeine/"
+ "/Users/jessebmiller/projects/vulgarstuff.com/app/packages/tyson/"
+ "/Users/jessebmiller/projects/types/"
+ "/Users/jessebmiller/projects/jesebmiller.com.dev/"
+ "/Users/jessebmiller/projects/jesebmiller.com.dev/client/"
+ "/Users/jessebmiller/projects/jesebmiller.com.dev/packages/tyson/"
+ "/Users/jessebmiller/projects/jesebmiller.com.dev/packages/caffeine/"
+ "/Users/jessebmiller/projects/sync/instagramSync/"
+ "/Users/jessebmiller/projects/sync/deliciousSync/"
+ "/Users/jessebmiller/projects/generic/"
+ "/Users/jessebmiller/projects/generic/packages/spaceRock/"
+ "/Users/jessebmiller/projects/generic/packages/typeclasses-meteor/"
+ "/Users/jessebmiller/projects/"
+ "/Users/jessebmiller/projects/haskellEuler/"
+ "/Users/jessebmiller/projects/instagramSync/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/client/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/server/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/packages/tyson/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/packages/functionalMeteor/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/packages/functional/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/packages/wu-xain/lib/"
+ "/Users/jessebmiller/projects/empire-comedy.com.dev/packages/wu-xain/"
+ "/Users/jessebmiller/projects/jessebmiller.com.mainline/client/"
+ "/Users/jessebmiller/projects/jessebmiller.com.mainline/packages/tyson/"
+ "/Users/jessebmiller/projects/jessebmiller.com/client/"
+ "/Users/jessebmiller/projects/jessebmiller.com/packages/tyson/"
+ "/Users/jessebmiller/projects/slideshow/packages/tyson/"
+ "/Users/jessebmiller/projects/slideshow/client/"
+ "/Users/jessebmiller/projects/jessebmiller.com/"
+ "/Users/jessebmiller/projects/slideshow/"
+ "/Users/jessebmiller/projects/slideshow/server/"
+ "/Users/jessebmiller/projects/jessebmiller.com/packages/wu/"
+ "/Users/jessebmiller/projects/jessebmiller.com/packages/wu.operators/"
+ "/Users/jessebmiller/projects/spotifind/client/"
+ "/Users/jessebmiller/projects/spotifind/server/"
+ "/Users/jessebmiller/projects/spotifind/lib/tyson/lib/"
+ "/Users/jessebmiller/projects/spotifind/"
+ "/Users/jessebmiller/projects/tyson/client/"
+ "/Users/jessebmiller/projects/tyson/lib/"
+ "/Users/jessebmiller/projects/tyson/specs/"
+ "/Users/jessebmiller/projects/curry/"
+ "/Users/jessebmiller/projects/spacedef/client/"
+ "/Users/jessebmiller/projects/spacedef/"
+ "/Users/jessebmiller/projects/spacedef/interface/client/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "types.less"
+ "server.js"
+ "layout.less"
+ "base.less"
+ "views.html"
+ "layout.html"
+ "views.js"
+ "product.less"
+ "models.js"
+ "types.js"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/client/style/" (21081 48606) "types.less" "layout.less" "base.less" ".#product.less" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/" (21081 49070) "types.js" "server/" "public/" "packages/" "collections.js" "client/" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/server/" (21081 49060) "server.js" "methods.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/client/" (21081 48624) "views.js" "views.html" "style/" "models.js" "layout.html" "controllers.js" "#views.js#" "#layout.html#" "../" "./")
+
+ ("/Users/jessebmiller/" (21078 6286) "workspace/" "tools/" "tmp/" "Public/" "projects/" "postcard-.jpg" "Pictures/" "Music/" "Movies/" "MorningLightMountain.psd" "morgue/" "Mail/" "Library/" "Google Drive/" "Downloads/" "Documents/" "Desktop/" "comedy/" "Applications/" ".zshrc~" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump" ".Xauthority" ".wapi/" ".viminfo" ".Trash/" ".subversion_IDEA/" ".subversion/" ".ssh/" ".sqlite_history" ".solarized/" ".recentf" ".pylint.d/" ".profile~" ".profile" ".pip/" ".oh-my-zsh/" ".npm/" ".node-gyp/" ".mongorc.js" ".meteorite/" ".meteor/" ".macports/" ".ido.last~" ".ido.last" ".gitconfig" ".ghc/" ".gem/" ".fontconfig/" ".emacs.d/" ".ec2/" ".DS_Store" ".dbshell" ".cups/" ".CFUserTextEncoding" ".cabal/" ".bashrc~" ".bashrc" ".bash_history" ".adobe/" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/" (21075 22606) "README.md" "psds/" "pngs/" "LICENSE" "app/" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/public/" (21066 11497) "layout.less" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/packages/caffeine/" (21066 9330) "README.md" "package.js" "LICENSE" "caffeine.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/packages/" (21066 7210) "tyson/" "functionalMeteor/" "caffeine/" "../" "./")
+
+ ("/Users/jessebmiller/projects/" (21066 7208) "vulgarstuff.com/" "sync/" "jesebmiller.com.dev/" "haskellEuler/" "empire-comedy.com.dev/" "caffeine/" "__old__/" ".DS_Store" "../" "./")
+
+ ("/Users/jessebmiller/projects/vulgarstuff.com/app/packages/tyson/" (21056 49487) "tysonClient.js" "tyson.js" "tests.js" "test.html" "README.md" "package.js~" "package.js" "collection.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/types/" (21047 52054) "types.js" "types.html" "types.css" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/" (21047 51018) "server/" "README.md" "packages/" "content.js" "collections.js" "client/" ".meteor/" ".gitmodules~" ".gitmodules" ".gitignore" ".git/" ".#ideas.org" "../" "./")
+
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/client/" (21047 51057) "layout.html~" "layout.html" "controllers.js" "content.js" "content.html" "associations.js" ".#content.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/packages/tyson/" (21047 48527) "tysonClient.js" "tyson.js" "tests.js" "test.html" "README.md" "package.js~" "package.js" "collection.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/packages/caffeine/" (21039 53568) "README.md" "package.js" "LICENSE" "caffeine.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("//" (20923 38635) "Volumes/" "var/" "usr/" "Users/" "User Guides And Information/" "tmp/" "System/" "sbin/" "private/" "opt/" "Network/" "net/" "mach_kernel" "Library/" "home/" "etc/" "dev/" "cores/" "bin/" "bak/" "Applications/" ".vol/" ".Trashes/" ".Spotlight-V100/" ".fseventsd/" ".file" ".DocumentRevisions-V100/" "../" "./")
+
+ ("/Users/jessebmiller/projects/sync/instagramSync/" (21036 2491) "node_modules/" "instagramSync.js" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/sync/deliciousSync/" (21036 2225) "deliciousSync.py" "../" "./")
+
+ ("/Users/jessebmiller/projects/jesebmiller.com.dev/packages/" (21035 48807) "tyson/" "functionalMeteor/" "caffeine/" "../" "./")
+
+ ("/Users/jessebmiller/projects/generic/packages/spaceRock/" (21033 23432) "spaceRock.js" "README.md" "package.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/generic/" (21033 23807) "packages/" "generic.js" ".meteor/" ".gitmodules" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/generic/packages/" (21029 9859) "spaceRock/" "../" "./")
+
+ ("/Users/jessebmiller/projects/generic/packages/typeclasses-meteor/" (21029 6022) "support/" "README.md" "monoid.js" "monad.js" "LICENSE" "functor.js" "examples/" "applicative.js" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/sync/" (21023 59972) "instagramSync/" "deliciousSync/" "../" "./")
+
+ ("/Users/jessebmiller/projects/haskellEuler/" (21020 10606) "../" "./")
+
+ ("/Users/jessebmiller/projects/instagramSync/" (21018 48681) "node_modules/" "instagramSync.js" ".#instagramSync.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/" (21012 14296) "server/" "packages/" "collections.js" "client/" ".meteor/" ".gitmodules~" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/client/" (21012 13753) "layout.less" "layout.js" "layout.html" "controllers.js" "content.less" "content.js" "content.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/tyson/" (21012 5718) "tyson.js" "tests.js" "test.html" "README.md" "package.js" "collection.js" ".meteor/" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/server/" (21009 32355) "content.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/functionalMeteor/" (21009 18478) "specs/" "README.md" "package.js" "functional.js" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/" (21009 15921) "tyson/" "functionalMeteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/functional/" (21009 13506) "specs/" "README.md" "package.json" "functional.js" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/wu-xain/" (21004 20764) "test/" "README.md" "package.json" "package.js" "LICENSE" "lib/" "AUTHORS" ".gitignore" ".git/" ".build/" "../" "./")
+
+ ("/Users/jessebmiller/projects/empire-comedy.com.dev/packages/wu-xain/lib/" (20996 19034) "wu.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/__old__/" (20938 26451) "WebType/" "technigami/" "syncuplink/" "stupidspecific/" "stage.lukehaynes.com/" "spotifind/" "slip/" "slideshow/" "share_container/" "old_menu/" "old.jessebmiller.com/" "nextrapture.com/" "nadjaeulee.com/" "momentiary/" "menus/" "madhipster/" "lukehaynes.com/" "lukehaynes/" "johnnyattero.com/" "jessebmiller.com/" "jecms.old/" "JasonMichaelPaul/" "inbox/" "import-content/" "hashtaghistory/" "gurls/" "gloriamundibooks.com/" "games/" "forgreatgood/" "eulabot/" "eaterary/" "dev.jessebmiller.com/" "curry/" "crawlThis/" "code_pices/" "asanatime/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/client/" (20996 15982) "layout.html~" "layout.html" "grids.js" "grids.html~" "controllers.js" "content.js~" "content.js" "content.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/packages/tyson/" (20996 14265) "tyson.js" "tests.js" "test.html" "README.md" "package.js~" "package.js" "collection.js" ".meteor/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/packages/" (20995 3602) "wu-xain/" "tyson/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson/client/" (20893 38720) "tysonTemplates.js~" "tysonTemplates.js" "tysonTemplates.html~" "tysonTemplates.html" "specs/" "compatibility/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson/" (20995 4989) "thoughts.org~" "thoughts.org" "specs/" "README.md" "lib/" "collection.js" "client/" ".meteor/" ".gitmodules~" ".gitmodules" ".gitignore~" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com.mainline/" (20995 4013) "server/" "packages/" "collections.js~" "collections.js" "client/" ".meteor/" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/client/" (20970 51503) "view.html" "controllers.js" "content.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/packages/tyson/" (20970 50045) "tyson.js" "testTypes.js" "tests.js" "test.html" "README.md" "package.js" "collection.js" ".meteor/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/packages/tyson/" (20970 49594) "tyson.js~" "tyson.js" "testTypes.js" "tests.js" "test.html" "README.md" "package.js~" "package.js" "collection.js" ".meteor/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/packages/" (20967 17715) "wu-xain/" "tyson/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/" (20967 18071) "tests/" "server/" "packages/" "collections.js" "client/" ".meteor/" ".gitmodules" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/server/" (20953 44052) "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/client/" (20967 17089) "view.js" "view.html~" "view.html" "controllers.js" "content.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/packages/" (20953 43066) "wu-xain/" "tyson/" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/" (20953 44070) "server/" "public/" "packages/" "collections.js" "client/" ".meteor/" ".gitmodules" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/packages/wu/" (20952 16472) "test/" "README.md" "package.json" "package.js" "LICENSE" "lib/" "AUTHORS" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/packages/wu.operators/" (20952 16767) "wu.operators.js" "package.js" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/client/" (20832 51448) "tos.html" "structure.html" "spotifind.css" "path.js" "homepage.js" "homepage.html" "history.js" "history.html" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/server/" (20832 49317) "spotifyMethods.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/lib/tyson/lib/" (20804 57754) "tyson.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/lib/tyson/" (20804 57754) "thoughts.org" "README.md" "lib/" "collection.js" "client/" ".meteor/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/" (20832 36508) "specs/" "smart.lock" "smart.json" "server/" "lib/" "client/" ".meteor/" ".gitmodules~" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson/lib/" (20832 35364) "tyson.js" "space-daisy/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/lib/" (20805 25337) "tyson/" "space-daisy/" "reset.css" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/lib/" (20813 29020) "tyson/" "css/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson/specs/" (20822 33969) "typedContentSpec.js" "test.html" "currySpecs.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/curry/" (20817 11853) "smart.lock" "smart.json" "curry.js" "curry.html" "curry.css" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/" (20816 2675) "smart.lock" "smart.json" "server/" "lib/" "data.js" "client/" ".meteor/" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/client/" (20816 2892) "spacedef.js" "spacedef.html" "smart.lock" "smart.json" "run.js" "css/" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/game/" (20815 65481) "server/" "lib/" "data.js" "client/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/interface/" (20815 64616) "server/" "data.js" "client/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/interface/client/" (20815 64513) "spacedef.js" "spacedef.html" "css/" ".meteor/" ".#spacedef.html" "#spacedef.html#" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/game/client/" (20815 64572) "run.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/interface/client/css/" (20815 62632) "spacedef.css" "../" "./")
+
+ ("/Users/jessebmiller/Pictures/" (20705 54008) "thequeenisnotamused/" "Photo Booth Library/" "OverUnder.jpg" "Obey-Middle-East-Mural.jpg" "mcdonalds_583.gif" "iPod Photo Cache/" "iPhoto Library/" "iChat Icons/" "hipsters for mad hipster/" "Downloaded Albums/" ".localized" ".DS_Store" "../" "./")
+
+ ("/Users/jessebmiller/.emacs.d/" (20780 60687) "places" "init.el" "elpa/" "build/" "backups/" "auto-save-list/" "ac-comphist.dat" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson/lib/space-daisy/" (20814 45868) "README.md" "lib/" "client/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/lib/tyson/lib/" (20815 42091) "tyson.js" "space-daisy/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/lib/tyson/" (20815 42091) "thoughts.org" "specs/" "README.md" "lib/" "collection.js" "client/" ".meteor/" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spacedef/lib/" (20815 42090) "tyson/" "../" "./")
+
+ ("/Users/jessebmiller/projects/slideshow/lib/css/" (20813 16908) "reset.css" "../" "./")
+
+ ("/Users/jessebmiller/projects/typePlay/" (20812 64501) "typePlay.hs" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/specs/" (20805 9980) "spotifindSpecs.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/client/css/" (20803 56475) "site.less" "layout.less" "fonts.css" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/public/leagueGothic/" (20802 37748) "SIL Open Font License 1.1.txt" "League_Gothic-webfont.woff" "League_Gothic-webfont.ttf" "League_Gothic-webfont.svg" "League_Gothic-webfont.eot" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/public/" (20802 50538) "SIL Open Font License 1.1.txt" "ostrich-rounded-webfont.woff" "ostrich-rounded-webfont.ttf" "ostrich-rounded-webfont.svg" "ostrich-rounded-webfont.eot" "ostrich-regular-webfont.woff" "ostrich-regular-webfont.ttf" "ostrich-regular-webfont.svg" "ostrich-regular-webfont.eot" "ostrich-light-webfont.woff" "ostrich-light-webfont.ttf" "ostrich-light-webfont.svg" "ostrich-light-webfont.eot" "ostrich-dashed-webfont.woff" "ostrich-dashed-webfont.ttf" "ostrich-dashed-webfont.svg" "ostrich-dashed-webfont.eot" "ostrich-bold-webfont.woff" "ostrich-bold-webfont.ttf" "ostrich-bold-webfont.svg" "ostrich-bold-webfont.eot" "ostrich-black-webfont.woff" "ostrich-black-webfont.ttf" "ostrich-black-webfont.svg" "ostrich-black-webfont.eot" "leagueGothic/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/server/" (20801 12865) "app.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/specs/" (20801 10972) "smart.lock" "smart.json" "appSpecs.js" ".meteor/" "../" "./")
+
+ ("/Users/jessebmiller/projects/asanatime/templates/" (20795 58446) "asanatime.html~" "asanatime.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/asanatime/" (20795 58370) "templates/" "specs/" "smart.lock" "smart.json" "server/" "README.md" "public/" "lib/" "collections/" "client/" "asanatime.html~" ".meteor/" ".gitmodules~" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/jessebmiller/projects/asanatime/specs/" (20795 57809) ".#local.css" "../" "./")
+
+ ("/Users/" (20020 35717) "Shared/" "jessebmiller/" ".localized" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/space-daisy/" (20795 55132) "README.md" "main.SpecRunner.html" "lib/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/modules/tyson/client/" (20795 29507) "urls.js" "tysonTemplates.js" "tysonTemplates.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/modules/tyson/" (20795 49397) "thoughts.org" "README.md" "lib/" "collection.js" "client/" ".meteor/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/spotifind/modules/" (20795 49181) "tyson/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/client/" (20795 54594) "main.SpecRunner.js" "main.SpecRunner.html" ".#main.SpecRunner.html" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/lib/jasmine-1.3.1/" (20795 51612) "MIT.LICENSE" "jasmine.css" "b_jasmine-html.js" "a_jasmine.js" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/lib/" (20795 51612) "jasmine-1.3.1/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/space-daisy/" (20795 52000) "README.md" "lib/" "client/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/jessebmiller.com/submodules/" (20795 51611) "tyson/" "space-daisy/" "showdown/" "normalize/" "../" "./")
+
+ ("/Users/jessebmiller/projects/google-jsapi/" (20795 46965) "jsapi.js" ".git/" "../" "./")
+
+ ("/Users/jessebmiller/projects/tyson-tester/" (20795 44460) "tyson-tester.js" "tyson-tester.html" "tyson-tester.css" "smart.json" ".meteor/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

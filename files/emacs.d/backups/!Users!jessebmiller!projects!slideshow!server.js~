@@ -1,0 +1,42 @@
+if (Meteor.isServer) {
+    var apiKey = '6tljBswFddVb40xV6eTHRLiBGkF01iyt4swxsSPCmqOyNFlbhh';
+    var url = 'http://api.tumblr.com/v2/blog/';
+    var limit = 50;
+    var offset = 0;
+
+    function getPosts(baseUrl, blogShortname, limit, offset) {
+        /* get the objects from the api and feed them into callback */
+        var data = {};
+        var pathTail = '.tumblr.com/posts/photo?api_key=' + apiKey;
+        var blogUrl = baseUrl + blogShortname + pathTail;
+        var limitUrl = blogUrl + '&limit=' + limit + '&offset=' + offset;
+        var gotExistingPost = false;
+        var totalPosts = 0;
+        Meteor.http.get(limitUrl, function (e, r) {
+            data = r.data;
+        });
+        _.each(data.response.posts, function (post) {
+            if (posts.find(post).count() == 0) {
+                posts.insert(post);
+            } else {
+                gotExistingPost = true;
+            }
+        });
+        totalPosts = data.response.toatl_posts;
+        if (!gotExistingPost && totalPosts > offset + (limit * 2) ) {
+            getPosts(baseUrl, limit, offset + limit);
+        }
+    }
+
+    function getPostCount (blogShortname) {
+        return posts.find({blog: blogShortname}).count();
+    }
+
+    Meteor.methods({
+        'getPosts': getPosts,
+        'getPostCount': getPostCount
+    });
+
+    Meteor.startup(function () {
+    });
+}

@@ -1,0 +1,12 @@
+Template.slideshow.instruction = function () {
+    var instruction = maybe(Content.findOne(
+        { type: 'instruction', _id: Session.get('instruction')}));
+    console.log('*** redrawing instruction with', Session.get('image'));
+    return Tyson.view(instruction);
+};
+
+Template.slideshow.image = function () {
+    var image = maybe(Content.findOne(
+        { type: 'slideshowImage', _id: Session.get('image')}));
+    return Tyson.view(image);
+};

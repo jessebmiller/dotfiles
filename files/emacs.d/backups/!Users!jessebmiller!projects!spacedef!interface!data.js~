@@ -1,0 +1,2 @@
+gameStore = new Meteor.Collection('games');
+readyPlayers = new Meteor.Collection('readyPlayers');

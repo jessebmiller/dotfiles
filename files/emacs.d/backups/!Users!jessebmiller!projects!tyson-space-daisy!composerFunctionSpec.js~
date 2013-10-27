@@ -1,0 +1,38 @@
+describe('{{{ renderThisPage }}}', function () {
+
+    var a = false;
+    var b = false;
+    var c = false;
+
+    beforeEach(function () {
+
+        TYSON.pathHandlers = {
+            type: function (arg) {
+                b = typeof(arg);
+                return b;
+            },
+            true: function () {
+                a = true;
+                return a;
+            },
+            first: function (arg) {
+                c = _.first(arg);
+                return Template.first({'letter': c});
+            }
+        }
+
+        Session.set('path', ['first', 'type', 'true']);
+    });
+
+    it('composes functions referenced by the path session veriable',
+       function () {
+           expect(a).toBe(true);
+           expect(b).toBe('boolean');
+           expect(c).toBe('b');
+       });
+
+    it('writes the resultant html to the dom', function () {
+        expect($('#c').get(0).tagname)
+            .toEqual($('span'))
+    });
+});

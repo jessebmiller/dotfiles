@@ -1,0 +1,18 @@
+TYSON.pathHandlers = (function () {
+    return {
+        basePathHandler: function (result) {
+            if (result === 'admin') {
+                return Template.admin();
+            }
+            Session.set('showTimer', 5);
+            Session.set('changeChance', 10);
+            Session.set('shortname', result);
+//            Meteor.call('getImages', Session.get('shortname'), function () {
+//                console.log('db up to date');
+//            });
+            getCount();
+            console.log('rendering base');
+            return Template.base();
+        }
+    }
+}());

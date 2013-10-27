@@ -1,0 +1,5 @@
+@column-width: 728px;
+
+.column {
+    width: @column-width;
+}

@@ -1,0 +1,21 @@
+<template name="history">
+  <div id="{{ id }}" class="player"></div>
+  <h2>{{ username }}</h2>
+  <ul>
+  {{# each tracks }}
+    <li>
+    {{> track }}
+    </li>
+  {{/ each }}
+  </ul>
+</template>
+
+<template name="track">
+  <div class="track" shortlink="{{ shortlink }}">{{ trackname }}</div>
+</template>
+
+<template name="player">
+  <iframe src="https://embed.spotify.com/?uri=spotify:track:{{ trackId }}"
+          width="300" height="380" frameborder="0" allowtransparency="true">
+  </iframe>
+</template>

@@ -1,0 +1,8 @@
+Template.homepage.events({
+    'click input.submit': function (event) {
+        var username = $('input').val();
+        var path = '/recent/' + username
+        preventDefault();
+        window.location.href
+    }
+});

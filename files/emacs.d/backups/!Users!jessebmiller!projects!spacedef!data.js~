@@ -1,0 +1,1 @@
+var readyPlayers = new Meteor.Collection('readyPlayers');

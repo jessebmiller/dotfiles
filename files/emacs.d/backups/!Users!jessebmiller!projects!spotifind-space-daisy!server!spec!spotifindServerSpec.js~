@@ -1,0 +1,3 @@
+describe("Jasmine tests the Meteor server", function () {
+	
+    });

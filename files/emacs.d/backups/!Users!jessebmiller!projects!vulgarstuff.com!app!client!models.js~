@@ -1,0 +1,11 @@
+function registerViews(type, views) {
+  Tyson.Viewable(type, {
+    views: function () { return views; }
+  });
+}
+
+registerViews(Product, {
+  view: Template.productDetail,
+  summary: Template.productSummary,
+  json: Template.json
+});

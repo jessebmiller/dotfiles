@@ -1,0 +1,7 @@
+<template name="text">
+  <p>{{ text }}</p>
+</template>
+
+<template name="link">
+  <a href="{{ url }}">{{ text }}</a>
+</a>

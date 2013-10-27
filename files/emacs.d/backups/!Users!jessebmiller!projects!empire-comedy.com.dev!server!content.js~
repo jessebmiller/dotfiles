@@ -1,0 +1,9 @@
+Meteor.publish("content", function () {
+    return Content.find();
+});
+
+Content.allow({
+    insert: function (userId, content) {
+        return;
+    }
+});

@@ -1,0 +1,19 @@
+@width: 728px;
+
+.full-width {
+    width: @width;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+header {
+    padding-bottom: 4em;
+}
+
+footer {
+    padding: 5em;
+}
+
+.content {
+    padding: 5em;
+}

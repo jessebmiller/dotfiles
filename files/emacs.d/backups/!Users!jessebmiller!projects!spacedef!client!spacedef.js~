@@ -1,0 +1,36 @@
+TYSON.defaultPathHandler = function (result, error) {
+    console.log("defaultPathHandler:", result, error);
+    if (error) {
+        return Template.error500();
+    } else if (result) {
+        return Template.notFound404();
+    } else {
+        return Template.homepage();
+    }
+};
+
+TYSON.pathHandlers = (function () {
+
+    return {
+        players: function (status) {
+            /* display a list of players of a given status, free, playing etc
+             */
+            var players = [];
+            console.log("players", status, readyPlayers.find().count());
+            switch(status) {
+            case "ready":
+                players = readyPlayers.find();
+                break;
+            case "playing":
+                playingGames = gameStore.find({}, {playerOne: 1, playerTwo: 1});
+                break;
+            }
+            return Template.players({players: players});
+        },
+        play: function () {
+            /* play the game */
+            console.log('play');
+            return Template.game();
+        }
+    };
+}());

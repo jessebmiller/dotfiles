@@ -1,0 +1,7 @@
+<template name="article">
+  <div class="article">
+    {{# with markdown }}
+      {{{ renderMarkdown }}}
+    {{/with}}
+  </div>
+</template>

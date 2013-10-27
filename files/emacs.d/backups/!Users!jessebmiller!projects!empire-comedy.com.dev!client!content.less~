@@ -1,0 +1,12 @@
+.list-reset {
+    margin-left: 0px;
+    list-style-type: none;
+}
+
+.post ol {
+    .list-reset
+}
+
+.list ol {
+    .list-reset
+}

@@ -1,0 +1,146 @@
+/* vulgarstuff.com consists of products for sale
+ * a product (T-shirt or Mug for example) is generated on the fly
+ * from an images and any other details that the product requires
+ * size for a shirt for example.
+ */
+
+function simpleViewable(type, templateName) {
+    Tyson.Viewable(type, {
+        views: function () {
+            return {
+                view: Template[templateName]
+            };
+        }
+    });
+}
+
+var simpleEJSON = function (fieldName, type, typeName) {
+    type.prototype.clone = function () { return type(this[fieldName]); };
+    type.prototype.equals = function (other) {
+        return this[fieldName] === other[fieldName];
+    };
+    type.prototype.typeName = function () { return typeName; };
+    type.prototype.toJSONValue = function () {
+        return {text: this[fieldName]};
+    };
+    EJSON.addType(typeName, function (value) {
+        return type(value[fieldName]);
+    });
+}.autoCurry();
+var textEJSON = simpleEJSON("text");
+var urlEJSON = simpleEJSON("url");
+
+/* data Image = {url: String} */
+Image = Constructor(function (url) {
+    var self = this;
+    this.url = url;
+});
+
+Tyson.Viewable(Image, {
+    views: function () {
+        return {
+            view: Template.image,
+            summary: Template.imageSummary
+        };
+    }
+});
+
+
+/* data Item = {shirt: Shirt} | {mug: Mug} | {poster: Poster} | {}*/
+Item = Constructor(function (instance) {
+    var self = this;
+    if (instance instanceof Shirt) {
+        self.shirt = instance;
+    } else if (instance instanceof Mug) {
+        self.mug = instance;
+    } else if (instance instanceof Poster) {
+        self.poster = instance;
+    }
+});
+
+/* data Shirt = {size: Size, color: color} */
+Shirt = Constructor(function (size, color) {
+    var self = this;
+    self.size = size;
+    self.color = color;
+});
+
+/* data Mug = {color: color} */
+Mug = Constructor(function (color) {
+    var self = this;
+    self.color = color;
+});
+
+/* data Poster */
+Poster = Constructor(function () {
+    var self = this;
+    self.isPoster = true;
+});
+
+/* data Product = {image: Image, item: Item} */
+VulgarProduct = Constructor(function (image, item) {
+    var self = this;
+    self.image = image;
+    self.item = item;
+});
+
+Tyson.Viewable(VulgarProduct, {
+    views: function () {
+        return {
+            view: Template.vulgarProduct
+        };
+    }
+});
+
+/* data ProductImage = {url: String} */
+ProductImage = Constructor(function (url) {
+    var self = this;
+    self.url = url;
+});
+simpleViewable(ProductImage, "productImage");
+urlEJSON(ProductImage, "ProductImage");
+
+/* data Text = Heading | Subheading | Paragraph */
+Text = Constructor(function (instance) {
+    var self = this;
+    if (instance instanceof Heading) {
+        self.heading = instance;
+    } else if (instance instanceof Subheading) {
+        self.subheading = instance;
+    } else if (instance instanceof Paragraph) {
+        self.paragraph = instance;
+    }
+});
+simpleViewable(Text, 'text');
+
+/* data Heading = {text: String} */
+Heading = Constructor(function (text) {
+    var self = this;
+    self.text = text;
+});
+simpleViewable(Heading, 'heading');
+textEJSON(Heading, "Heading");
+
+/* data Subheading = {text: String} */
+Subheading = Constructor(function (text) {
+    var self = this;
+    self.text = text;
+});
+simpleViewable(Subheading, 'subheading');
+textEJSON(Subheading, "Subheading");
+
+/* data Paragraph = {text: String} */
+Paragraph = Constructor(function (text) {
+    var self = this;
+    self.text = text;
+});
+simpleViewable(Paragraph, 'paragraph');
+simpleEJSON("text", Paragraph, "Paragraph");
+
+/* data Promotion = {image: ProductImage, typeography: [Text]} */
+Promotion = Constructor(function (productImage, typography) {
+    var self = this;
+    self.image = productImage;
+    self.typography = typography;
+});
+simpleViewable(Promotion, "promotion");

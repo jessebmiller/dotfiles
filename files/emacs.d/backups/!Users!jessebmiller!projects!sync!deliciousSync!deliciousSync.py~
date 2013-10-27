@@ -1,0 +1,28 @@
+from hashlib import sha1
+from pymongo import MongoClient
+from deliciousapi import DeliciousAPI
+
+mongourl = "mongodb://localhost:3002"
+database = "meteor"
+
+client = MongoClient(mongourl)
+db = client[database]
+content = db.content
+
+dapi = DeliciousAPI()
+jesse = dapi.get_user('jessebmiller', password="M$gWexASmci4e7Fj")
+
+fields = ["url", "tags", "title", "notes", "timestamp"]
+def make_typed(b):
+    _id = sha1(str(b)).hexdigest()
+    d = dict(zip(fields, list(b)))
+    return { "type": "delicious",
+             "data": d,
+             "_id": _id }
+
+for b in jesse.bookmarks:
+    typed = make_typed(b)
+    if content.find_one(typed):
+        break
+    print "inserting", typed['_id']
+    content.insert(typed)

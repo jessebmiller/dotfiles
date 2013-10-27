@@ -1,0 +1,6 @@
+Templates.track.events({
+    "click .track": function (clickEvent) {
+        track = clickEvent.currentTarget
+        shortlink = $(track).attr('shortlink');
+    });
+});

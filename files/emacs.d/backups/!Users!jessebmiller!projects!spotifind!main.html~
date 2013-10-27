@@ -1,0 +1,28 @@
+<head>
+  <title>Spotifind</title>
+</head>
+
+<body>
+  <div id="page">
+    {{> header }}
+    {{> pageContent }}
+    {{> footer }}
+    {{> specRunner }}
+  </div>
+</body>
+
+<template name="header">
+  <header>
+    <h1>SPOTIFIND</h1>
+  </header>
+</template>
+
+<template name="pageContent">
+  <div id="content">
+    {{{ renderThisPage }}}
+  </div>
+</template>
+
+<template name="footer">
+  <h6>built with <a href="https://github.com/jessebmiller/tyson">Tyson</a></h6>
+</template>

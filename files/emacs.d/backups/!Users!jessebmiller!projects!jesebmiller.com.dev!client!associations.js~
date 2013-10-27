@@ -1,0 +1,7 @@
+tag = function (content, tags) {
+    /* insert an assocaition between the given content and the tags 
+     * content Object with _id property or String of the id
+     */
+    var contentId = content._id || content;
+    var tagIds = functional.map("x -> Content.findOne({name: x})._id", tags);
+};

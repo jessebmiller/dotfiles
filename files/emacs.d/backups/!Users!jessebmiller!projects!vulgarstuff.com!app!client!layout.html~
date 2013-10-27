@@ -1,0 +1,29 @@
+<head>
+  <title>Vulgar Stuff</title>
+</head>
+
+<body>
+  <header>
+    <div class="full-width">
+      <h1>Vulgar Stuff</h1>
+      <h2>Shirts, Mugs and Posters with vulgar stuff on it</h2>
+      <h3>Motherfuckin' awesome</h3>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="full-width">
+      {{> content }}
+    </div>
+  </div>
+
+  <footer>
+    <div class="full-width">
+      <h6>&copy 2013 Vulgar Stuff</h6>
+    </div>
+  </footer>
+</body>
+
+<template name="content">
+  {{{ thisView }}}
+</template>

@@ -1,0 +1,47 @@
+<head>
+  <title>Jesse B Miller</title>
+</head>
+
+<body>
+  <div id="mainContainer">
+    <div id="headerContainer">
+        {{> header }}
+    </div>
+
+    <div id="pageBodyContainer">
+        {{> pageBody }}
+    </div>
+
+    <div id="footerContainer">
+        {{> footer }}
+    </div>
+
+    {{> specRunner }}
+  </div>
+</body>
+
+<template name="header">
+  <div class="row">
+    <header>
+      <span class="big">J</span><span class="low">ESSE</span><span class="mid">B</span><span class="tall">M</span><span class="low">illeR</span>
+    </header>
+  </div>
+</template>
+
+<template name="pageBody">
+  <div class="row">
+    <div id="pageBody">
+      {{{ renderThisPage }}}
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+    <div class="row">
+      <footer>
+        <h6>Built with
+          <a href="https://github.com/jessebmiller/tyson">Tyson</a>
+        </h6>
+      </footer>
+    </div>
+</template>

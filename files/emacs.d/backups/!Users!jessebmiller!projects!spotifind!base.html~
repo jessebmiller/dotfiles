@@ -1,0 +1,31 @@
+<head>
+  <title>Jesse B Miller</title>
+</head>
+
+<body>
+  <div id="page">
+    {{> header }}
+    {{> pageBody }}
+    {{> footer }}
+  </div>
+</body>
+
+<template name="header">
+  <header>
+    <h1>Jesse B Milller</h1>
+  </header>
+</template>
+
+<template name="pageBody">
+  <div class="pageBody">
+    {{{ renderThisPage }}}
+  </div>
+</template>
+
+<template name="footer">
+  <footer>
+    <h6>
+      built with <a href="https://github.com/jessebmiller/tyson">Tyson</a>
+    </h6>
+  </footer>
+</template>

@@ -1,0 +1,4 @@
+.failingAlert {
+    position: fixed;
+    top: 0;
+}

@@ -1,0 +1,16 @@
+Template.newGame.events({
+    "click button": function (event) {
+        event.preventDefault();
+        
+    }
+});
+
+Template.game.events({
+    "click canvas": function (event) {
+        addDot(event.clientX, event.clientY);
+    }
+});
+
+Template.game.run = function () {
+    drawDots();
+};

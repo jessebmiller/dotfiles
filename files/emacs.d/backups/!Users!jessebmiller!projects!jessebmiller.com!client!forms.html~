@@ -1,0 +1,6 @@
+<template name="articleForm">
+  <form>
+    <input type="textarea" />
+    <input type="submit" value="submit" />
+  </form>
+</template>

@@ -1,0 +1,23 @@
+<template name="vulgarProduct">
+  <div class="image">
+    {{# with image }}
+    {{> image }}
+    {{/ with }}
+  </div>
+  <div class="item">
+    {{# with item }}
+    {{> item }}
+    {{/ with }}
+  </div>
+</template>
+
+<template name="image">
+  <img src="{{ url }}" />
+</template>
+
+<template name="item">
+  <h2>{{ typeName }}</h2>
+  {{# if not isPoster }}
+  <h3>{{ size }} {{ color }}</h3>
+  {{/ if }}
+</template>

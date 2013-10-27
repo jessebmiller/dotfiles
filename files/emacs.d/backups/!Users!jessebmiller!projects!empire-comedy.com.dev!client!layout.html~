@@ -1,0 +1,44 @@
+<head>
+  <title>Empire Comedy</title>
+</head>
+
+<body>
+  {{> header }}
+  {{> content }}
+  {{> footer }}
+</body>
+
+<template name="header">
+  <header>
+    <div class="column">
+      <h1>Empire Comedy</h1>
+      <h2>Chicago has some funny motherfuckers.</h2>
+    </div>
+  </header>
+</template>
+
+<template name="content">
+  <div class="content">
+    <div class="column">
+      {{{ thisView }}}
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+  <footer>
+    <div class="column">
+      <h6>&copy 2013 Jesse B Miller</h6>
+    </div>
+  </footer>
+</template>
+
+<template name="list">
+  <ol>
+    {{# each elements }}
+    <li id="{{_id}}">
+      {{{ viewContent this }}}
+    </li>
+    {{/ each }}
+  </ol>
+</template>

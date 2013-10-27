@@ -1,0 +1,35 @@
+<head>
+  <title>spacedef</title>
+</head>
+
+<body>
+  {{ loginButtons }}
+  {{{ renderThisPage }}}
+</body>
+
+<template name="game">
+  <canvas id="spacedef" />
+</template>
+
+<template name="error500">
+  <h1>Internal Error 500</h1>
+</template>
+
+<template name="notFound404">
+  <h1>404 Not Found</h1>
+</template>
+
+<template name="homepage">
+  <h1>homepage</h1>
+</template>
+
+<template name="players">
+  {{# each players }}
+  <div class="player" id="_id">
+    Player: 
+    {{# each emails }}
+      {{ address }}
+    {{/ each }}
+  </div>
+  {{/ each }}
+</template>
