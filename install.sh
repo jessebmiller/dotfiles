@@ -25,12 +25,14 @@ cd $dir
 # symlinks
 for file in $files; do
 
+    echo "processing $file"
+
     if [ -f ~/.$file ]
     then
-        echo "Moving .$file from ~ to $olddir"
+        echo "  Moving .$file from ~ to $olddir"
         mv ~/.$file $olddir
     fi
 
-    echo "Creating symlink to $file in home directory."
+    echo "  * Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
