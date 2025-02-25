@@ -1,0 +1,27 @@
+{
+
+  description = "The computer systems of Jesse B. Miller";
+
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs, ... }: 
+    let
+      lib = nixpkgs.lib;
+    in {
+    nixosConfigurations = {
+      # one configuration per host name
+      # select which configuration to use for this 
+      # machine by setting the hostname in ./configuration.nix
+      # to match one of the below
+      laptop = lib.nixosSystem {
+        system = "x86_64-linux";
+	modules = [
+          ./configuration.nix
+	];
+      };
+    };
+  };
+
+}
