@@ -19,7 +19,7 @@
 		  brave
 		  neovim
 		  spotify
-
+                  discord
 	  ];
 	  programs.zsh.enable = true;
 	  programs.git = {
