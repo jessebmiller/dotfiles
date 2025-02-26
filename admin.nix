@@ -23,10 +23,9 @@
 		  };
 	  };
 	  programs.alacritty = {
-	      enable = true;
 	      settings = {
 	          # copy themes from github.com/alacritty/alacritty-theme
-	          general.import = [ "~/dotfiles/solarized_osaka.toml" ];
+	          general.import = [ "~/dotfiles/solarized_dark.toml" ];
 	          font.size = 15;
 	      };
 	  };
