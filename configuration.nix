@@ -89,6 +89,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    nerd-fonts.inconsolata
   ];
 
   programs.firefox.enable = true;
