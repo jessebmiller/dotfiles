@@ -92,6 +92,7 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.zsh.enable = true;
+  prigrams.rofi.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
