@@ -102,6 +102,7 @@
     wget
     htop
     rofi
+    alacritty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
