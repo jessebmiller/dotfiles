@@ -87,6 +87,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  fonts.packages = with pkgs; {
+    nerd-fonts.fira-code;
+  };
+
   programs.firefox.enable = true;
   programs.tmux.enable = true;
   programs.git.enable = true;
@@ -104,8 +108,6 @@
     htop
     rofi
     alacritty
-    fira-code
-    fira-code-nerdfont
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
