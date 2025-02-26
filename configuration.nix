@@ -87,9 +87,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  fonts.packages = with pkgs; {
+  fonts.packages = with pkgs; [
     nerd-fonts.fira-code;
-  };
+  ];
 
   programs.firefox.enable = true;
   programs.tmux.enable = true;
