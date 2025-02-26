@@ -27,7 +27,8 @@
 	  	  enable = true;
 		  settings = {
 			general.import = [ ~/.config/alacritty/themes/themes/solarized_osaka.toml ];
-		  }
+		  };
+	  };
 	  home.stateVersion = "24.11";
   };
 }
