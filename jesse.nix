@@ -30,6 +30,13 @@
 			  init.defaultBranch = "main";
 		  };
 	  };
+	  protrams.alacritty = {
+		enable = true;
+		settings = {
+			font.size = 11;
+			general.import = [ ./solarized_dark.toml ];
+		};
+	  };
 	  home.stateVersion = "24.11";
   };
 }
