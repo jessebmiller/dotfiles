@@ -7,5 +7,5 @@ main = xmonad $ def
   , borderWidth = 1
   }
   `additionalKeys`
-  [ ((mod1Mask, xK_p), spawn "rofi -show run")
+  [ ((modMask, xK_p), spawn "rofi -show run")
   ]
