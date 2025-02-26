@@ -30,7 +30,7 @@
 			  init.defaultBranch = "main";
 		  };
 	  };
-	  protrams.alacritty = {
+	  programs.alacritty = {
 		enable = true;
 		settings = {
 			font.size = 11;
