@@ -12,6 +12,7 @@
 		  brave
 		  neovim
 		  spotify
+		  alacritty-theme
 	  ];
 	  programs.zsh.enable = true;
 	  programs.git = {
@@ -22,6 +23,11 @@
 			  init.defaultBranch = "main";
 		  };
 	  };
+	  programs.alacritty = {
+	  	  enable = true;
+		  settings = {
+			general.import = [ ~/.config/alacritty/themes/themes/solarized_osaka.toml ]
+		  }
 	  home.stateVersion = "24.11";
   };
 }
