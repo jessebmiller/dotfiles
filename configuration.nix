@@ -89,7 +89,6 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
-    montserat
   ];
 
   programs.firefox.enable = true;
