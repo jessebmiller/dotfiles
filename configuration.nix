@@ -92,7 +92,6 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.zsh.enable = true;
-  prigrams.rofi.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -102,6 +101,7 @@
   environment.systemPackages = with pkgs; [
     wget
     htop
+    rofi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
