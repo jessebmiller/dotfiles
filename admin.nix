@@ -30,7 +30,7 @@
 	          font.size = 11;
 		  font = {
 		    normal = {
-		      family = "Nerdfont Inconsolata";
+		      family = "nofont";
 	            };
 		  };
 	      };
