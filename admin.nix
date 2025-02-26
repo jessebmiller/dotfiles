@@ -23,10 +23,11 @@
 		  };
 	  };
 	  programs.alacritty = {
+	      enabled = true;
 	      settings = {
 	          # copy themes from github.com/alacritty/alacritty-theme
 	          general.import = [ "~/dotfiles/solarized_dark.toml" ];
-	          font.size = 15;
+	          font.size = 11;
 	      };
 	  };
 	  home.stateVersion = "24.11";
