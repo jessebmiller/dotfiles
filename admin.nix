@@ -26,7 +26,7 @@
 	      enable = true;
 	      settings = {
 	          # copy themes from github.com/alacritty/alacritty-theme
-	          general.import = [ "~/dotfiles/solarized_dark.toml" ];
+	          general.import = [ ./solarized_dark.toml ];
 	          font.size = 11;
 	      };
 	  };

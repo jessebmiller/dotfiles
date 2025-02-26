@@ -92,6 +92,7 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
   programs.zsh.enable = true;
+  programs.starship.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
