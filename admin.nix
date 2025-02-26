@@ -22,10 +22,13 @@
 			  init.defaultBranch = "main";
 		  };
 	  };
-	  programs.alacritty.settings = {
-	      # copy themes from github.com/alacritty/alacritty-theme
-	      general.import = [ ./solarized_osaka.toml ];
-		  
+	  programs.alacritty = {
+	      enable = true;
+	      settings = {
+	          # copy themes from github.com/alacritty/alacritty-theme
+	          general.import = [ "~/dotfiles/solarized_osaka.toml" ];
+	          font.size = 15;
+	      };
 	  };
 	  home.stateVersion = "24.11";
   };
