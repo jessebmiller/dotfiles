@@ -26,7 +26,7 @@
 	  programs.alacritty = {
 	  	  enable = true;
 		  settings = {
-			general.import = [ ~/.config/alacritty/themes/themes/solarized_osaka.toml ]
+			general.import = [ ~/.config/alacritty/themes/themes/solarized_osaka.toml ];
 		  }
 	  home.stateVersion = "24.11";
   };
