@@ -28,7 +28,7 @@
 	          # copy themes from github.com/alacritty/alacritty-theme
 	          general.import = [ ./solarized_dark.toml ];
 	          font.size = 11;
-		  font.normal.family = "inconsolata";
+		  font.normal.family = "inter";
 	      };
 	  };
 	  home.stateVersion = "24.11";

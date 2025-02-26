@@ -90,6 +90,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.inconsolata
+    nerd-fonts.inter
   ];
 
   programs.firefox.enable = true;
