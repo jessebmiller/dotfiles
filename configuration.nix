@@ -88,7 +88,8 @@
   # services.xserver.libinput.enable = true;
 
   fonts.packages = with pkgs; [
-    nerd-fonts.fira-code;
+    nerd-fonts.fira-code
+    montserat
   ];
 
   programs.firefox.enable = true;
