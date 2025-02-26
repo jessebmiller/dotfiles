@@ -104,6 +104,8 @@
     htop
     rofi
     alacritty
+    fira-code
+    fira-code-nerdfont
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
