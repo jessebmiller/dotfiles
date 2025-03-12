@@ -116,6 +116,8 @@
     ulauncher
   ];
 
+  programs.zsh.enable = true;
+
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.ulauncher}/bin/ulauncher --hide-window &
   '';
