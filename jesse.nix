@@ -1,10 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, sharedPassword, ... }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jesse = {
     isNormalUser = true;
     description = "Jesse B. Miller";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
+    hashedPassword = sharedPassword;
   };
 
   programs.steam = {

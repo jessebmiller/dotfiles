@@ -11,6 +11,8 @@
   outputs = { self, nixpkgs, home-manager, ... }: 
     let
       lib = nixpkgs.lib;
+      sharedPassword = "$6$oUx6PfReu6GTwf1X$MqtG3kUBNZGWlJJO.4eDO1SOTHz1sdKVPztx4ppokxN2ydWSissxXSrSbgvgB9R72UCkP1e4QUIrkKubwrtpS.";
+
     in {
     nixosConfigurations = {
       # one configuration per host name
@@ -26,6 +28,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+	    _module.args.sharedPassword = sharedPassword;
           }
 	];
       };
