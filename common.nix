@@ -22,6 +22,15 @@
       enable = true;
       initExtra = ''
         eval "$(starship init zsh)"
+
+	# History configuration
+        HISTFILE=~/.zsh_history
+	HISTSIZE=10000
+	SAVEHIST=10000
+	setopt SHARE_HISTORY
+	setopt APPEND_HISTORY
+	setopt INC_APPEND_HISTORY
+	setopt HIST_IGNORE_DUPS
       '';
     };
     programs.tmux.enable = true;
