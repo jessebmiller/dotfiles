@@ -4,6 +4,7 @@
     isNormalUser = true;
     description = "Jesse B. Miller";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   programs.steam = {

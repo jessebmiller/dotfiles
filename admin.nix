@@ -4,6 +4,7 @@
     isNormalUser = true;
     description = "Jesse B. Miller (admin)";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   home-manager.users.admin = {pkgs, ... }: {

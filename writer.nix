@@ -1,12 +1,13 @@
 { config, pkgs, ... }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jesse = {
+  users.users.writer = {
     isNormalUser = true;
     description = "Jesse B. Miller";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
-  home-manager.users.jesse = {pkgs, ... }: {
+  home-manager.users.writer = {pkgs, ... }: {
     home.packages = with pkgs; [
       spotify
     ];

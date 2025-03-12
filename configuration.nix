@@ -114,7 +114,6 @@
     wget
     htop
     ulauncher
-    alacritty
   ];
 
   services.xserver.displayManager.sessionCommands = ''
