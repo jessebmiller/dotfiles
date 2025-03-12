@@ -97,7 +97,7 @@
     nerd-fonts.fira-code
     nerd-fonts.inconsolata
     nerd-fonts.jetbrains-mono
-    nerd-fonts.cascadia-code
+    nerd-fonts.cascadia
     fira-code
     martian-mono
     dejavu_fonts

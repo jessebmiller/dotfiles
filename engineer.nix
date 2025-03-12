@@ -7,24 +7,14 @@
   };
 
   home-manager.users.engineer = {pkgs, ... }: {
-	  nixpkgs.config.allowUnfree = true;
 	  home.packages = with pkgs; [
 		  brave
-		  neovim
 		  spotify
 		  go
 		  pnpm
 		  nodejs_23
 	  ];
-	  programs.zsh.enable = true;
-	  programs.git = {
-		  enable = true;
-		  userName = "Jesse B. Miller";
-		  userEmail = "jesse@jessebmiller.com";
-		  extraConfig = {
-			  init.defaultBranch = "main";
-		  };
-	  };
-	  home.stateVersion = "24.11";
+	
+	home.stateVersion = "24.11";
   };
 }
