@@ -87,18 +87,25 @@
   # services.xserver.libinput.enable = true;
 
   fonts.packages = with pkgs; [
+    # Sans-serif
+    montserrat
+  
+    # Serif
+    eb-garamond
+  
+    # Monospace/Coding
     nerd-fonts.fira-code
     nerd-fonts.inconsolata
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.cascadia-code
+    fira-code
+    martian-mono
+    dejavu_fonts
+
+    # Icon fonts
+    font-awesome
   ];
 
-  programs.firefox.enable = true;
-  programs.tmux.enable = true;
-  programs.git.enable = true;
-  programs.neovim.enable = true;
-  programs.zsh.enable = true;
-  programs.starship.enable = true;
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:

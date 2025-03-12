@@ -7,5 +7,5 @@ main = xmonad $ def
   , borderWidth = 1
   }
   `additionalKeys`
-  [ ((mod4Mask, xK_p), spawn "ulauncher-toggle")
+  [ ((mod4Mask, xK_space), spawn "ulauncher-toggle")
   ]

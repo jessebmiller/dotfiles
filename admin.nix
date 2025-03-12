@@ -7,7 +7,6 @@
   };
 
   home-manager.users.admin = {pkgs, ... }: {
-    nixpkgs.config.allowUnfree = true;
       home.packages = with pkgs; [
         brave
         spotify
