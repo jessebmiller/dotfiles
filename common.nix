@@ -32,7 +32,7 @@
   fonts.fontconfig.enable = true;
   fonts.fontconfig.defaultFonts = {
     monospace = [ "Martian Mono" ];
-    sansSerif = [ "Avenir Next" ];
+    sansSerif = [ "Nunito" ];
     serif = [ "EB Garamond" ];
   };
 }
