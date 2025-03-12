@@ -106,11 +106,15 @@
   environment.systemPackages = with pkgs; [
     wget
     htop
-    rofi
+    ulauncher
     alacritty
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.ulauncher}/bin/ulauncher --hide-window &
+  '';
+
+  #Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
