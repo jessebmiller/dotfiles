@@ -89,7 +89,7 @@
   fonts.packages = with pkgs; [
     # Sans-serif
     montserrat
-    nunito
+    ntexlivePackages.nunito
   
     # Serif
     eb-garamond
