@@ -89,6 +89,7 @@
   fonts.packages = with pkgs; [
     # Sans-serif
     montserrat
+    avenir-next
   
     # Serif
     eb-garamond

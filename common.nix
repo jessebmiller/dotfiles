@@ -13,12 +13,17 @@
       enable = true;
       settings = {
         font.size = 11;
-        font.normal.family = "Inconsolata";
+        font.normal.family = "Martian Mono";
         general.import = [ ./solarized_dark.toml ];
       };
     };
-    
-    programs.zsh.enable = true;
+
+    programs.zsh = {
+      enable = true;
+      initExtra = ''
+        eval "$(starship init zsh)"
+      '';
+    };
     programs.tmux.enable = true;
     programs.neovim.enable = true;
     programs.starship.enable = true;
@@ -26,8 +31,8 @@
 
   fonts.fontconfig.enable = true;
   fonts.fontconfig.defaultFonts = {
-    monospace = [ "JetBrains Mono Nerd Font" ];
-    sansSerif = [ "Montserrat" ];
+    monospace = [ "Martian Mono" ];
+    sansSerif = [ "Avenir Next" ];
     serif = [ "EB Garamond" ];
   };
 }
