@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Util.EZConfig
 
 main = xmonad $ def 
-  { terminal    = "/etc/profiles/per-user/admin/bin/alacritty"
+  { terminal    = "alacritty"
   , modMask     = mod4Mask
   , borderWidth = 1
   }
