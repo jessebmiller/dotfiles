@@ -8,4 +8,5 @@ main = xmonad $ def
   }
   `additionalKeys`
   [ ((mod4Mask, xK_p), spawn "ulauncher-toggle")
+    ((mod4Mask, xK_u), spawn "dm-tool switch-to-greeter")
   ]
