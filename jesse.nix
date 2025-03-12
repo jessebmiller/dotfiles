@@ -7,36 +7,20 @@
   };
 
   programs.steam = {
-	enable = true;
-	remotePlay.openFirewall = false;
-	dedicatedServer.openFirewall = false;
-	localNetworkGameTransfers.openFirewall = false;
+    enable = true;
+    remotePlay.openFirewall = false;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = false;
   };
 
   home-manager.users.jesse = {pkgs, ... }: {
-	  nixpkgs.config.allowUnfree = true;
-	  home.packages = with pkgs; [
-		  brave
-		  neovim
-		  spotify
-                  discord
-	  ];
-	  programs.zsh.enable = true;
-	  programs.git = {
-		  enable = true;
-		  userName = "Jesse B. Miller";
-		  userEmail = "jesse@jessebmiller.com";
-		  extraConfig = {
-			  init.defaultBranch = "main";
-		  };
-	  };
-	  programs.alacritty = {
-		enable = true;
-		settings = {
-			font.size = 11;
-			general.import = [ ./solarized_dark.toml ];
-		};
-	  };
-	  home.stateVersion = "24.11";
+    nixpkgs.config.allowUnfree = true;
+    home.packages = with pkgs; [
+      brave
+      spotify
+      discord
+    ];
+	
+    home.stateVersion = "24.11";
   };
 }

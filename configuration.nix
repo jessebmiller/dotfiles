@@ -7,7 +7,6 @@
 {
   imports = [
       ./hardware-configuration.nix
-      <home-manager/nixos>
       ./jesse.nix
       ./engineer.nix
       ./admin.nix
