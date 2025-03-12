@@ -114,6 +114,7 @@
     wget
     htop
     ulauncher
+    pulseaudio
   ];
 
   programs.zsh.enable = true;
