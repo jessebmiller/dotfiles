@@ -13,6 +13,10 @@
 		  brave
 		  spotify
 		  go
+		  rustc
+		  cargo
+		  rustfmt
+		  rust-analyzer
 		  pnpm
 		  nodejs_23
 	  ];
