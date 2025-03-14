@@ -17,6 +17,8 @@
 		  cargo
 		  rustfmt
 		  rust-analyzer
+		  gcc
+		  pkg-config
 		  pnpm
 		  nodejs_23
 	  ];
