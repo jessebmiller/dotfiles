@@ -21,6 +21,7 @@
 		  pkg-config
 		  pnpm
 		  nodejs_23
+		  alsaLib
 	  ];
 	
 	home.stateVersion = "24.11";
