@@ -115,6 +115,7 @@
     htop
     ulauncher
     pulseaudio
+    flameshot
   ];
 
   programs.zsh.enable = true;
