@@ -36,6 +36,7 @@
     programs.tmux.enable = true;
     programs.neovim.enable = true;
     programs.starship.enable = true;
+    programs.flameshot.enable = true;
   }];
 
   fonts.fontconfig.enable = true;
