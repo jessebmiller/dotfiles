@@ -104,7 +104,7 @@
     ulauncher
     pulseaudio
     flameshot
-    lspci
+    pciutils
   ];
 
   programs.zsh.enable = true;
