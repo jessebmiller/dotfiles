@@ -5,7 +5,7 @@
     enable = true;
     enableContribAndExtras = true;
     config = builtins.readFile ./xmonad.hs;
-  }
+  };
 
   users.users.jesse = {
     isNormalUser = true;
