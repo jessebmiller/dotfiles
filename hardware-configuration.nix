@@ -36,6 +36,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+
+# NVIDIA SHIT. see https://nixos.wiki/wiki/Nvidia
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
@@ -73,5 +76,12 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  hardware.nvidia.prime = {
+    sync.enable = true;
+
+    nvidiaBusId = "PCI:1:0:0";
+    intelBusId = "PCI:0:2:0";
   };
 }
