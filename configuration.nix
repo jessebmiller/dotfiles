@@ -109,11 +109,6 @@
 
   programs.zsh.enable = true;
   
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.ulauncher}/bin/ulauncher --hide-window &
-  '';
-
   #Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
