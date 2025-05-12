@@ -1,13 +1,10 @@
 { config, pkgs, sharedPassword, ... }: {
 
   services.xserver.enable = true;
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = builtins.readFile ./xmonad.hs;
-  }
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  users.users.jesse = {
+  users.users.games = {
     isNormalUser = true;
     description = "Jesse B. Miller";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -15,7 +12,14 @@
     hashedPassword = sharedPassword;
   };
 
-  home-manager.users.jesse = {pkgs, ... }: {
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false;
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = false;
+  };
+
+  home-manager.users.games = {pkgs, ... }: {
     home.packages = with pkgs; [
       brave
       spotify

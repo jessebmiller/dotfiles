@@ -1,5 +1,12 @@
 { config, pkgs, sharedPassword, ... }: {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+ 
+  services.xserver.enable = true;
+  services.xserver.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = builtins.readFile ./xmonad.hs;
+  }
+
   users.users.admin = {
     isNormalUser = true;
     description = "Jesse B. Miller (admin)";
