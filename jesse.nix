@@ -7,10 +7,10 @@
     config = builtins.readFile ./xmonad.hs;
   };
 
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.ulauncher}/bin/ulauncher --hide-window &
-  '';
+#  services.xserver.displayManager.lightdm.enable = true;
+#  services.xserver.displayManager.sessionCommands = ''
+#    ${pkgs.ulauncher}/bin/ulauncher --hide-window &
+#  '';
 
   users.users.jesse = {
     isNormalUser = true;
