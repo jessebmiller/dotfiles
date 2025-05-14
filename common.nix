@@ -1,5 +1,7 @@
 { config, pkgs, ... }: {
   home-manager.sharedModules = [{
+
+
     programs.git = {
       enable = true;
       userName = "Jesse B. Miller";
@@ -37,6 +39,26 @@
     programs.neovim.enable = true;
     programs.starship.enable = true;
   }];
+
+  services.xserver = {
+    enable = true;
+    
+    displayManager = {
+      gdm.enable = true;
+      # lightdm.enable = lib.mkForce false;
+    };
+    
+    desktopManager.gnome.enable = true;
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = builtins.readFile ./xmonad.hs;
+    };
+
+    displayManager.sessionCommands = ''
+      ${pkgs.ulauncher}/bin/ulauncher --hide-window &
+    '';
+  };
 
   fonts.fontconfig.enable = true;
   fonts.fontconfig.defaultFonts = {
