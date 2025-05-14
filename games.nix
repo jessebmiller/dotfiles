@@ -2,7 +2,7 @@
 
   users.users.games = {
     isNormalUser = true;
-    description = "Jesse B. Miller";
+    description = "Jesse B. Miller (games)";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     hashedPassword = sharedPassword;

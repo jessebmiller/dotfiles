@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   home-manager.sharedModules = [{
 
-
     programs.git = {
       enable = true;
       userName = "Jesse B. Miller";
@@ -43,12 +42,8 @@
   services.xserver = {
     enable = true;
     
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
+    displayManager.lightdm.enable = true;
     
-    desktopManager.gnome.enable = true;
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -57,7 +52,6 @@
 
     displayManager.sessionCommands = ''
       ${pkgs.ulauncher}/bin/ulauncher --hide-window &
-      echo "XMonad session starting" > ~/xmonad-session.log 2>&1
     '';
   };
 
