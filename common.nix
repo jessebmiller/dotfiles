@@ -43,9 +43,9 @@
   services.xserver = {
     enable = true;
     
-    displayManager = {
-      gdm.enable = true;
-      # lightdm.enable = lib.mkForce false;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
     };
     
     desktopManager.gnome.enable = true;
@@ -57,6 +57,7 @@
 
     displayManager.sessionCommands = ''
       ${pkgs.ulauncher}/bin/ulauncher --hide-window &
+      echo "XMonad session starting" > ~/xmonad-session.log 2>&1
     '';
   };
 
