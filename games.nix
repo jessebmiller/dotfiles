@@ -21,6 +21,11 @@
       spotify
       discord
     ];
+
+    programs.zsh.shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake /home/admin/dotfiles#laptop";
+      edit-config = "nvim /home/admin/dotfiles/games.nix";
+    };
 	
     home.stateVersion = "24.11";
   };

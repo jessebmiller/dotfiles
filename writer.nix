@@ -1,5 +1,4 @@
 { config, pkgs, sharedPassword, ... }: {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.writer = {
     isNormalUser = true;
     description = "Jesse B. Miller";
@@ -27,6 +26,11 @@
         goyo-vim
         limelight-vim
       ];
+    };
+
+    programs.zsh.shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake /home/admin/dotfiles#laptop";
+      edit-config = "nvim -c 'set nospell' -c 'set nowrap' /home/admin/dotfiles/writer.nix";
     };
 
     home.stateVersion = "24.11";

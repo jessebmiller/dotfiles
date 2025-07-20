@@ -105,6 +105,7 @@
     pulseaudio
     flameshot
     pciutils
+    acl
   ];
 
   programs.zsh.enable = true;

@@ -61,4 +61,16 @@
     sansSerif = [ "Nunito" ];
     serif = [ "EB Garamond" ];
   };
+
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }
