@@ -11,6 +11,7 @@
       ./engineer.nix
       ./admin.nix
       ./games.nix
+      ./writer.nix
     ];
 
   # Bootloader.
