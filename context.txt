@@ -1,0 +1,41 @@
+NixOS Dotfiles ADHD Management System - Context Summary
+System Overview
+Jesse B. Miller uses a NixOS configuration with separate user accounts for different "modes" to manage ADHD:
+
+jesse - general use (brave, spotify, discord)
+engineer - development tools (go, rust, nodejs, etc.)
+admin - system management (brave, spotify)
+games - gaming (steam, discord)
+writer - distraction-free writing (spotify only, neovim with goyo/limelight)
+
+Mode switching via Super+U (XMonad greeter switch) to maintain focus and prevent tool-based distractions.
+Current Issue Resolved
+Problem: Adding gemini-cli to user package lists caused "undefined variable" errors during nixos-rebuild.
+Root Cause: Flake was locked to older nixpkgs (Feb 2025) that didn't have gemini-cli package.
+Solution Applied:
+
+Fixed flake.lock permissions: sudo chown admin:users /home/admin/dotfiles/flake.lock
+Updated flake: nix flake update
+Updated nodejs reference from nodejs_23 to nodejs in engineer.nix
+
+Repository Structure
+
+/home/admin/dotfiles/ - git repo with all configs
+flake.nix - main flake with shared password hash
+common.nix - shared configs (git, alacritty, zsh, tmux, neovim, xmonad)
+Individual user files: jesse.nix, engineer.nix, admin.nix, games.nix, writer.nix
+XMonad window manager with minimal distractions
+Solarized Dark theme throughout
+
+Key Insights
+
+nix-shell -p package can access newer packages than locked flakes
+Package names vs executable names often differ
+Flake updates can break package references due to version changes
+In-mode configuration updates needed to maintain flow state
+
+Next Steps Discussed
+
+Need techniques for low-friction config updates without breaking focus
+Writer mode still being refined (not imported in configuration.nix yet)
+Considering hot-reload config editing and faster rebuild strategies

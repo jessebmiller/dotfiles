@@ -19,7 +19,7 @@
 		  gcc
 		  pkg-config
 		  pnpm
-		  nodejs_23
+		  nodejs
 		  alsa-lib
 	  ];
 

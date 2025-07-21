@@ -107,6 +107,7 @@
     flameshot
     pciutils
     acl
+    gemini-cli
   ];
 
   programs.zsh.enable = true;
