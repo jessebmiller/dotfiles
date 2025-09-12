@@ -1,9 +1,17 @@
 # dotfiles
 
-# Install
+## Install
 
 * Install Fedora (sway) https://fedoraproject.org/spins/sway
 * run `install.sh`
+
+## TODO
+
+* add git config to install script
+  * git config --global user.email "you@example.com"
+  * git config --global user.name "Your Name"
+* Figure out how to handle ssh keys (for example github authorization and ssh login)
+* 
 
 # Dependency Evaluation Rubric
 
