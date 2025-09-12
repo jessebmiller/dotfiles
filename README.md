@@ -1,4 +1,9 @@
-We're going to be trying something different. 
+# dotfiles
+
+# Install
+
+* Install Fedora (sway) https://fedoraproject.org/spins/sway
+* run `install.sh`
 
 # Dependency Evaluation Rubric
 
@@ -6,11 +11,11 @@ A framework for choosing tools, libraries, and ecosystems that solve problems wi
 
 ## Criteria
 
-**Needed** Solves an actual problem without adding more
-
-**Focused** - Solves only your problem domain (Unix philosophy). Avoids "everything for everyone" scope creep.
-
-**Complete** - Tackles the entire problem within its scope. No half-solutions that leave you frequently handling edge cases.
+* **Well Suited**
+  * **Needed** - Solves a signifigant problem. One hard to solve with a bespoke solution
+  * **Focused** - Solves only your problem domain. Avoids "everything for everyone" scope creep and bloat. A clue that something is focused is that it has few or no options/configuration. High configurability is a sign of handling many contexts,
+                  and while your context might overlap, many others to you are likely to be bloat and get in the way.
+  * **Complete** - Tackles the entire problem within its scope. No half-solutions that leave you frequently handling edge cases.
 
 **Permeable** - Compresses complexity without creating barriers to the underlying system. Doesn't add complexity when handling the inevitable edge case.
 
@@ -18,9 +23,9 @@ A framework for choosing tools, libraries, and ecosystems that solve problems wi
 
 **Fast Enough** - Leaves performance budget for your work on top. Not necessarily optimal, but not a bottleneck.
 
-**Composable** - Plays well with other tools via standard interfaces (files, pipes, protocols). Doesn't demand living in its world.
+**Composable** - Plays well with other tools via standard interfaces (files, pipes, protocols). Doesn't demand living in its world. It should not constrain your choices for solving other problems
 
-**Longevity** - Mature enough to survive technology cycles, but not legacy/maintenance-mode. Good governance structure.
+**Longevity** - Mature enough to survive technology cycles, but not legacy/maintenance-mode.
 
 **Low Cognitive Overhead** - Reasonable mental model size. Doesn't require constant context switching or complex state tracking.
 
