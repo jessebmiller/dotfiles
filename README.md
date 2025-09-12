@@ -10,6 +10,7 @@
 * add git config to install script
   * git config --global user.email "you@example.com"
   * git config --global user.name "Your Name"
+  * git config pull.rebase true
 * Figure out how to handle ssh keys (for example github authorization and ssh login)
 * 
 
