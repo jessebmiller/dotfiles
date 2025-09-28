@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+# Checks all system declarations against the current system
+
+# It generates a plan to bring the system into the declared state
+
+# It executes that plan
+
