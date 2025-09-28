@@ -14,4 +14,12 @@
 
 - [ ] backups (snapshots, offsite)
 - [ ] package upgrades (frequently enough)
-- [ ] system upgrades
+- [ ] system upgrades (when ready)
+
+# Security
+
+- [ ] encrypted private config
+  - declare ssh private keys
+  - brave/chrome config saved as encrypted bytes?
+  - encrypted backups
+  
