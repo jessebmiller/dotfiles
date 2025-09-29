@@ -1,6 +1,57 @@
-#! /usr/bin/env bash
+#! /usr/bin/env python
+
+import os
 
 # Checks all system declarations against the current system
+
+# declarations is the union of all found declarations
+declarations = {
+    "rpm_packages": set([]),
+    "rpm_ascs": set([]),
+    "homefiles": set([]),
+    "sysfiles": set([]),
+}
+
+rpm_packages_filename = "rpm-packages.txt"
+rpm_asc_filename = "rpm-ascs.txt"
+
+def process_declaration(declarations, dir_entry):
+    """ process a declaration in the given dir """
+    # rpm packages
+    rpm_packages_path = os.path.join(dir_entry.path, rpm_packages_filename)
+    if os.path.exists(rpm_packages_path):
+        with open(rpm_packages_path, "r") as f:
+            contents = f.read()
+            # TODO handle dnf list --installed output format for package list
+            packages = [p.strip() for p in contents.split('\n') if p]
+            declarations["rpm_packages"].update(packages)
+
+    # ascs
+    ascs_path = os.path.join(dir_entry.path, rpm_asc_filename)
+    if os.path.exists(ascs_path):
+        with open(ascs_path, 'r') as f:
+            contents = f.read()
+            ascs = [a.strip() for a in contents.split('\n') if a]
+            declarations["rpm_ascs"].update(ascs)
+
+    # homefiles
+    homefiles_path = os.path.join(dir_entry.path, "homefiles")
+    if os.path.exists(homefiles_path):
+        declarations["homefiles"].add(homefiles_path)
+
+    # sysfiles
+    sysfiles_path = os.path.join(dir_entry.path, "sysfiles")
+    if os.path.exists(sysfiles_path):
+        declarations["sysfiles"].add(sysfiles_path)
+
+# TODO make finding the declarations folder robust.
+# Currently its just looking relative to the script call
+for entry in os.scandir("declarations"):
+    if entry.is_dir():
+        process_declaration(declarations, entry)
+
+from pprint import pprint
+pprint(declarations)
 
 # It generates a plan to bring the system into the declared state
 
