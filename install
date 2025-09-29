@@ -7,16 +7,18 @@ import sys
 
 # the union of all declared manifests
 system_manifest = {
-    "rpm_packages": set([]),
-    "rpm_ascs": set([]),
-    "stow_packages_home": set([]),
-    "stow_packages_root": set([]),
+    "rpm_packages": set(),
+    "rpm_ascs": set(),
+    "dnf_groups": set(),
+    "stow_packages_home": set(),
+    "stow_packages_root": set(),
 }
 
 class SpecdNames:
     """ Well Known file and folder names specified (spec'd) for various purposes """
     RPM_PACKAGES = "rpm-packages.txt"
     RPM_ASCS = "rpm-ascs.txt"
+    DNF_GROUPS = "dnf-groups.txt"
     STOW_HOME = "stow_home"
     STOW_ROOT = "stow_root"
 
@@ -25,7 +27,7 @@ manifests = Path(__file__).parent / "manifests"
 for rpm_packages in manifests.rglob(SpecdNames.RPM_PACKAGES):
     with open(rpm_packages, 'r') as f:
         contents = f.read()
-        packages = [p.strip() for p in contents.split("\n") if p]
+        packages = [p.strip() for p in contents.split('\n') if p]
         system_manifest["rpm_packages"].update(packages)
 
 for rpm_ascs in manifests.rglob(SpecdNames.RPM_ASCS):
@@ -33,6 +35,12 @@ for rpm_ascs in manifests.rglob(SpecdNames.RPM_ASCS):
         contents = f.read()
         ascs = [a.strip() for a in contents.split('\n') if a]
         system_manifests["rpm_ascs"].update(ascs)
+
+for dnf_groups in manifests.rglob(SpecNames.DNF_GROUPS):
+    with open(dnf_groups, 'r') as f:
+        contents = f.read()
+        groups = [g.strip() for g in contents.split('\n') if g]
+        system_manifest["dnf_groups"].update(groups)
 
 for stow_packages_home in manifests.rglob(SpecdNames.STOW_HOME):
     system_manifest["stow_packages_home"] = stow_packages_home
