@@ -18,20 +18,21 @@
 
 Folder names and file names are meaningful
 
-`./declarations` hold all declarations. Each is a folder with various declaration types
+`./manifests` hold all declarations. Each is a folder with manifest types below
 `./packages` hold custom packages that can be installed, removed, listed, and declared
 
 Types may be
 
 `rpm-packages` a list of rpm packages to install
-`rpm-repos` a list of rpm repositories to add (should this be sysfiles? these go in /etc/yum.repos.d/<repo file>.repo)
 `rpm-asc` a list of rpm ascs to import
-`homefiles` a directory of stow packages to be stowed relative to $HOME
-`sysfiles` a directory of stow packages to be stowed relative to /
+`dnf-groups' a list of groups to install with dnf
+`stow-home` a directory of stow packages to be stowed relative to $HOME
+`stow-root` a directory of stow packages to be stowed relative to /
 
 *future work*
 
 custom packages (for Go, Rust, etc.) will need to implement install, remove, list
+if a custom package isntalls something with dnf, that could conflict with the rpm packages management
 
 # Dependency Evaluation Rubric
 

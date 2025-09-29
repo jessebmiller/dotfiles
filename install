@@ -1,26 +1,33 @@
 #! /usr/bin/env python
 
 from pathlib import Path
+import subprocess
 import sys
+
 
 # Checks all system manifests against the current system
 
-# the union of all declared manifests
-system_manifest = {
-    "rpm_packages": set(),
-    "rpm_ascs": set(),
-    "dnf_groups": set(),
-    "stow_packages_home": set(),
-    "stow_packages_root": set(),
-}
+
+class Manifest:
+    """ sets of identifiers for each manifest type (rpm packages, stow packages etc.) """
+    rpm_packages       = set()
+    rpm_ascs           = set()
+    dnf_groups         = set()
+    stow_packages_home = set()
+    stow_packages_root = set()
+
 
 class SpecdNames:
     """ Well Known file and folder names specified (spec'd) for various purposes """
-    RPM_PACKAGES = "rpm-packages.txt"
-    RPM_ASCS = "rpm-ascs.txt"
-    DNF_GROUPS = "dnf-groups.txt"
-    STOW_HOME = "stow_home"
-    STOW_ROOT = "stow_root"
+    RPM_PACKAGES   = "rpm-packages.txt"
+    RPM_ASCS       = "rpm-ascs.txt"
+    DNF_GROUPS     = "dnf-groups.txt"
+    STOW_HOME      = "stow_home"
+    STOW_ROOT      = "stow_root"
+    MANIFEST_SPECS = "manifest-specs"
+
+
+target_manifest = Manifest()
 
 manifests = Path(__file__).parent / "manifests"
 
@@ -28,40 +35,38 @@ for rpm_packages in manifests.rglob(SpecdNames.RPM_PACKAGES):
     with open(rpm_packages, 'r') as f:
         contents = f.read()
         packages = [p.strip() for p in contents.split('\n') if p]
-        system_manifest["rpm_packages"].update(packages)
+        target_manifest["rpm_packages"].update(packages)
 
 for rpm_ascs in manifests.rglob(SpecdNames.RPM_ASCS):
     with open(rpm_ascs, 'r') as f:
         contents = f.read()
         ascs = [a.strip() for a in contents.split('\n') if a]
-        system_manifests["rpm_ascs"].update(ascs)
+        target_manifests["rpm_ascs"].update(ascs)
 
 for dnf_groups in manifests.rglob(SpecNames.DNF_GROUPS):
     with open(dnf_groups, 'r') as f:
         contents = f.read()
         groups = [g.strip() for g in contents.split('\n') if g]
-        system_manifest["dnf_groups"].update(groups)
+        target_manifest["dnf_groups"].update(groups)
 
 for stow_packages_home in manifests.rglob(SpecdNames.STOW_HOME):
-    system_manifest["stow_packages_home"] = stow_packages_home
+    target_manifest["stow_packages_home"] = stow_packages_home
 
 for stow_packages_root in manifests.rglob(SpecdNames.STOW_ROOT):
-    system_manifest["stow_packages_root"] = stow_packages_root
+    target_manifest["stow_packages_root"] = stow_packages_root
 
-print(system_manifest)   
+# diff with existing system
 
-sys.exit(0)
+current_manifest = Manifest()
 
-# TODO make finding the manifests folder robust.
-# Currently its just looking relative to the script call
-for entry in os.scandir("manifests"):
-    if entry.is_dir():
-        process_declaration(manifests, entry)
+# RPM packages
+# NOTE: groups are handled elsewhere, so we only should care about packages installed by the user
+# TODO: implement this process as a manifest spec interface that requires install, remove, and list
+#       that way we can do the job of making sure each manifest spec is non-overlapping (separate group and user install reason)
+# 
+#       make each 3 scripts named install :: Manifest -> Install Effect, remove :: Manifest -> Remove Effect, and list -> Manifest
+#       maybe they're python libraries?
 
-from pprint import pprint
-pprint(manifests)
-
-# It generates a plan to bring the system into the declared state
-
-# It executes that plan
+packages = subprocess.run(
+    ["dnf", "
 
