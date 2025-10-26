@@ -15,10 +15,11 @@
 ### Automate Essentials
 
 - [ ] Brave + (Manual for now I guess: 1password + set default search engine)
-- [ ] nvim
+- [x] nvim
 - [ ] terminal
 - [ ] key mappings
-- [ ] Btrfs Snapshots
+- [x] Btrfs Snapshots
+- [ ] Backup Home Foler
 
 ### Completeness
 
