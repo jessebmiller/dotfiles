@@ -2,6 +2,10 @@
 
 set -e
 
+# RPM Fusion
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
+
 # for brave
 sudo dnf install dnf-plugins-core
 sudo dnf config-manager addrepo --overwrite --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
@@ -32,6 +36,8 @@ else
   rustup update
 fi
 
+. "$HOME/.cargo/env"
+
 # Install Alacritty
 cargo install alacritty
 
@@ -39,3 +45,4 @@ cargo install alacritty
 # Stow dotfiles
 stow --dotfiles -d stow-packages -t $HOME nvim
 stow --dotfiles -d stow-packages -t $HOME alacritty
+stow --dotfiles -d stow-packages -t $HOME sway
