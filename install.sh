@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# desktop uuid 5a94f7f3-d3e4-82df-11ee-04421ae78b7b /sys/class/dmi/id/product_serial
+
 set -e
 
 # RPM Fusion
@@ -19,7 +21,9 @@ sudo dnf install -y \
   stow \
   neovim python3-neovim\
   git \
-  brave-browser
+  brave-browser \
+  discord \
+  steam
 
 git config --global user.email "jesse@jessebmiller.com"
 git config --global user.name "Jesse B. Miller"
