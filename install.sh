@@ -23,7 +23,12 @@ sudo dnf install -y \
   git \
   brave-browser \
   discord \
-  steam
+  steam \
+  flatpak
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak install spotify
 
 git config --global user.email "jesse@jessebmiller.com"
 git config --global user.name "Jesse B. Miller"
@@ -42,8 +47,9 @@ fi
 
 . "$HOME/.cargo/env"
 
-# Install Alacritty
+# Install cargo tools
 cargo install alacritty
+cargo install mdbook
 
 
 # Stow dotfiles
