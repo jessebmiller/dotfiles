@@ -35,7 +35,6 @@ git config --global user.name "Jesse B. Miller"
 
 sudo ./configure-snapper.sh
 
-
 # Install or update rustup
 if ! command -v rustup &> /dev/null; then
   echo "Installing Rustup"

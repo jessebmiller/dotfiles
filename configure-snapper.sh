@@ -74,6 +74,10 @@ else
     echo -e "${YELLOW}✗ /home is not a btrfs subvolume, skipping${NC}"
 fi
 
+echo "Enabling snapper timers..."
+sudo systemctl enable --now snapper-cleanup.timer
+sudo systemctl enable --now snapper-timeline.timer
+
 echo
 echo -e "${GREEN}Setup complete!${NC}"
 echo
