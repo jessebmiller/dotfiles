@@ -2,7 +2,7 @@
 
 ## Install
 
-* Install Fedora (sway) https://fedoraproject.org/spins/sway
+* Install Fedora (Sway) https://fedoraproject.org/spins/sway
 * run `install.sh`
 * manually install 1password brave plugin
 

@@ -6,52 +6,55 @@ set -e
 
 # RPM Fusion
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# for brave
-sudo dnf install dnf-plugins-core
+# Brave browser repo
+sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager addrepo --overwrite --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
-# For alacritty
+# Build deps for alacritty (installed via cargo)
 sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
 
-# Directly installed packages
+# Packages
 sudo dnf install -y \
-  snapper \
   stow \
-  neovim python3-neovim\
+  neovim python3-neovim \
   git \
+  rofi \
   brave-browser \
   discord \
   steam \
-  flatpak
+  nodejs npm
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-flatpak install spotify
-
+# Git global config
 git config --global user.email "jesse@jessebmiller.com"
 git config --global user.name "Jesse B. Miller"
+git config --global pull.rebase true
 
-sudo ./configure-snapper.sh
+# SSH key
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+  ssh-keygen -t ed25519 -C "jesse@jessebmiller.com" -f "$HOME/.ssh/id_ed25519" -N ""
+fi
+echo "SSH public key (add to GitHub if not already done):"
+cat "$HOME/.ssh/id_ed25519.pub"
 
-# Install or update rustup
+# Rust toolchain
 if ! command -v rustup &> /dev/null; then
-  echo "Installing Rustup"
+  echo "Installing rustup"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 else
-  echo "Updating Rustup"
+  echo "Updating rustup"
   rustup update
 fi
 
 . "$HOME/.cargo/env"
 
-# Install cargo tools
 cargo install alacritty
 cargo install mdbook
 
+npm install -g @anthropic-ai/claude-code
 
 # Stow dotfiles
-stow --dotfiles -d stow-packages -t $HOME nvim
-stow --dotfiles -d stow-packages -t $HOME alacritty
-stow --dotfiles -d stow-packages -t $HOME sway
+stow --dotfiles --restow -d stow-packages -t "$HOME" nvim
+stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
+stow --dotfiles --restow -d stow-packages -t "$HOME" i3

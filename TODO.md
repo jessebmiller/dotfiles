@@ -14,16 +14,14 @@
 
 ### Automate Essentials
 
-- [ ] Brave + (Manual for now I guess: 1password + set default search engine)
+- [x] Brave + (Manual for now I guess: 1password + set default search engine)
 - [x] nvim
 - [ ] terminal
 - [ ] key mappings
-- [x] Btrfs Snapshots
-- [ ] Backup Home Foler
 
 ### Completeness
 
-- [ ] Sway config
+- [ ] wm config
 - [ ] rpm package list
 - [ ] dnf repos, etc.
 - [ ] Custom packages (Golang, Rust, etc.)
