@@ -35,17 +35,17 @@ git config --global pull.rebase true
 # SSH key
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
   ssh-keygen -t ed25519 -C "jesse@jessebmiller.com" -f "$HOME/.ssh/id_ed25519" -N ""
+  echo ""
+  echo "SSH public key — opening GitHub and copying key to clipboard..."
+  xclip -selection clipboard < "$HOME/.ssh/id_ed25519.pub" && echo "Key copied to clipboard." || echo "xclip failed — copy the key below manually:"
+  cat "$HOME/.ssh/id_ed25519.pub"
+  xdg-open "https://github.com/settings/ssh/new" 2>/dev/null || echo "Open https://github.com/settings/ssh/new in your browser."
+  echo ""
+  read -rp "Press Enter once the key is added to GitHub..." < /dev/tty
+  git -C "$HOME/work/dotfiles" remote set-url origin git@github.com:jessebmiller/dotfiles.git
+  echo "Remote switched to SSH."
+  echo ""
 fi
-echo ""
-echo "SSH public key — opening GitHub and copying key to clipboard..."
-xclip -selection clipboard < "$HOME/.ssh/id_ed25519.pub" && echo "Key copied to clipboard." || echo "xclip failed — copy the key below manually:"
-cat "$HOME/.ssh/id_ed25519.pub"
-xdg-open "https://github.com/settings/ssh/new" 2>/dev/null || echo "Open https://github.com/settings/ssh/new in your browser."
-echo ""
-read -rp "Press Enter once the key is added to GitHub..."
-git -C "$HOME/work/dotfiles" remote set-url origin git@github.com:jessebmiller/dotfiles.git
-echo "Remote switched to SSH."
-echo ""
 
 # Rust toolchain
 if ! command -v rustup &> /dev/null; then
@@ -61,9 +61,22 @@ fi
 cargo install alacritty
 cargo install mdbook
 
-npm install -g @anthropic-ai/claude-code
+if ! command -v claude &>/dev/null; then
+  npm install -g @anthropic-ai/claude-code
+fi
 
 # Stow dotfiles
 stow --dotfiles --restow -d stow-packages -t "$HOME" nvim
 stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
+
+# Machine-specific config
+SERIAL="$(cat /sys/class/dmi/id/product_serial 2>/dev/null || true)"
+DESKTOP_SERIAL="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
+LAPTOP_SERIAL="C02RG1V0G941"
+
+if [ "$SERIAL" = "$LAPTOP_SERIAL" ]; then
+    # Memory tuning for MacBook Air A1466 (4GB RAM)
+    # See TROUBLESHOOTING.md for context
+    :  # placeholder
+fi
