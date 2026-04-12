@@ -42,6 +42,34 @@ Restore with `mv ~/.config/i3/config.bak ~/.config/i3/config` once fixed.
 
 ---
 
+## Laptop: Brave freezes under heavy memory pressure
+
+**Root cause**: MacBook Air A1466 has 4GB soldered RAM. Brave + YouTube/Docs exhausts physical RAM and pushes ~3GB into zram swap. btrfs CoW amplifies I/O during swap storms but is not the root cause — ext4 would not fix this.
+
+**Mitigations (not yet applied, in order of impact)**:
+
+1. **Brave Memory Saver** (zero config) — `brave://settings/performance` → enable Memory Saver. Discards inactive tabs from RAM automatically.
+
+2. **`~/.config/brave-flags.conf`** — limit renderer processes:
+   ```
+   --renderer-process-limit=3
+   --process-per-site
+   ```
+
+3. **earlyoom** — kills the biggest process before the system becomes unresponsive:
+   ```sh
+   sudo dnf install earlyoom
+   sudo systemctl enable --now earlyoom
+   ```
+
+4. **systemd memory cap** — soft ceiling isolates Brave from system-wide OOM:
+   ```sh
+   systemd-run --scope --user -p MemoryHigh=2G -p MemoryMax=2.5G brave-browser %U
+   ```
+   Wire into Brave's `.desktop` file or a wrapper script for persistence.
+
+---
+
 ## i3: Lid-close locking not working
 
 `xss-lock` may not be included in the Fedora i3 Spin. Check:
