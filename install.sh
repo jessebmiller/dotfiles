@@ -61,6 +61,7 @@ fi
 cargo install alacritty
 cargo install mdbook
 
+npm config set prefix "$HOME/.local"
 if ! command -v claude &>/dev/null; then
   npm install -g @anthropic-ai/claude-code
 fi
