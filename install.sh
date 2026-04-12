@@ -67,6 +67,9 @@ if ! command -v claude &>/dev/null; then
 fi
 
 # Stow dotfiles
+# Remove default configs installed by the spin that would block stow
+rm -f "$HOME/.config/i3/config"
+
 stow --dotfiles --restow -d stow-packages -t "$HOME" nvim
 stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
