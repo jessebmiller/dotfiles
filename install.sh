@@ -67,6 +67,9 @@ if ! command -v claude &>/dev/null; then
 fi
 
 # Stow dotfiles
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+cd "$DOTFILES_DIR"
+
 # Remove default configs installed by the spin that would block stow
 rm -f "$HOME/.config/i3/config"
 
