@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # desktop uuid 5a94f7f3-d3e4-82df-11ee-04421ae78b7b /sys/class/dmi/id/product_uuid
+# laptop uuid  6a1a3f4f-3c9a-5870-9c54-93faea5bbc64 /sys/class/dmi/id/product_uuid
 
 set -e
 
@@ -73,20 +74,24 @@ cd "$DOTFILES_DIR"
 # Remove default configs installed by the spin that would block stow
 rm -f "$HOME/.config/i3/config"
 
+echo "Stowing nvim..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" nvim
+echo "Stowing alacritty..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
+echo "Stowing i3..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
+echo "Dotfiles stowed."
 
 # Machine-specific config
 DESKTOP_UUID="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
-LAPTOP_SERIAL="C02RG1V0G941"
+LAPTOP_UUID="6a1a3f4f-3c9a-5870-9c54-93faea5bbc64"
 
 THIS_UUID="$(sudo cat /sys/class/dmi/id/product_uuid 2>/dev/null || true)"
-THIS_SERIAL="$(sudo cat /sys/class/dmi/id/product_serial 2>/dev/null || true)"
 
-echo $THIS_UUID ":" $DESKTOP_UUID
+echo "Machine UUID: $THIS_UUID"
 
 if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
+    echo "Detected: desktop — installing NVIDIA drivers..."
     # NVIDIA drivers for RTX 3060 Ti
     # RPM Fusion non-free must be configured (done above)
     # Requires Secure Boot disabled — driver module won't load if SB is on
@@ -105,8 +110,20 @@ if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
     fi
 fi
 
-if [ "$THIS_SERIAL" = "$LAPTOP_SERIAL" ]; then
-    # Memory tuning for MacBook Air A1466 (4GB RAM)
-    # See TROUBLESHOOTING.md for context
-    :  # placeholder
+if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
+    echo "Detected: laptop — installing Broadcom drivers..."
+    # Broadcom wireless — requires RPM Fusion non-free (configured above)
+    sudo dnf update -y  # avoid kernel/driver version mismatch
+    if ! rpm -q akmod-wl &>/dev/null; then
+        sudo dnf install -y akmod-wl
+    fi
+    if ! modinfo -F version wl &>/dev/null; then
+        echo ""
+        echo "Broadcom: waiting for module to compile..."
+        while ! ls /var/cache/akmods/wl/kmod-wl-"$(uname -r)"-*.rpm &>/dev/null; do
+            sleep 10
+        done
+        echo "Broadcom module ready. Reboot to load the driver: sudo reboot"
+        echo ""
+    fi
 fi
