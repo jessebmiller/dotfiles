@@ -20,6 +20,8 @@ git remote set-url origin git@github.com:jessebmiller/dotfiles.git
 - Set Brave default search engine
 - Log in to GitHub, Google, etc.
 
+**Laptop only:** install.sh will prompt for your WiFi SSID and password before rebooting. WiFi connects automatically after reboot.
+
 
 
 # Dependency Evaluation Rubric

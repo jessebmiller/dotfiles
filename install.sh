@@ -119,11 +119,18 @@ if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
     fi
     if ! modinfo -F version wl &>/dev/null; then
         echo ""
+        read -rp "WiFi SSID: " WIFI_SSID < /dev/tty
+        read -rsp "WiFi password: " WIFI_PASS < /dev/tty
+        echo ""
+        nmcli connection add type wifi con-name "$WIFI_SSID" ifname "*" ssid "$WIFI_SSID" \
+            wifi-sec.key-mgmt wpa-psk wifi-sec.psk "$WIFI_PASS"
+        echo "WiFi profile saved."
+        echo ""
         echo "Broadcom: waiting for module to compile..."
         while ! ls /var/cache/akmods/wl/kmod-wl-"$(uname -r)"-*.rpm &>/dev/null; do
             sleep 10
         done
-        echo "Broadcom module ready. Reboot to load the driver: sudo reboot"
+        echo "Broadcom module ready. Reboot when ready: sudo reboot"
         echo ""
     fi
 fi

@@ -61,6 +61,16 @@ sudo dracut --force
 sudo reboot
 ```
 
+### Connecting after reboot
+
+install.sh prompts for SSID and password before rebooting and saves a NetworkManager profile. WiFi connects automatically on boot.
+
+If you need to connect manually:
+```sh
+nmcli device wifi list                                     # scan for networks
+nmcli device wifi connect "YourSSID" password "yourpass"  # connect
+```
+
 ### Known limitations
 - Driver can drop connection periodically; workaround if needed: `sudo modprobe -r wl && sudo modprobe wl`
 - akmod rebuild after kernel update may take time or fail silently — WiFi may be broken until it succeeds
