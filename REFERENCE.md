@@ -7,7 +7,7 @@ Stable reference material for use during the reinstall process.
 ## Hardware
 
 ### Desktop
-- **GPU**: NVIDIA (verify model: `lspci | grep -i nvidia`)
+- **GPU**: RTX 3060 Ti (GeForce GA104 LHR)
 - **Storage**: 1TB
 - **Use cases**: Gaming, AI inference (hobby), video production (TTRPG actual plays)
 
@@ -16,6 +16,30 @@ Stable reference material for use during the reinstall process.
 - **RAM**: ~4GB or 8GB (verify: `free -h`)
 - **Storage**: ~128GB or 256GB SSD (verify: `df -h`)
 - **Known issues**: Broadcom driver breaks on kernel upgrades; no ethernet port
+
+---
+
+## NVIDIA Drivers (Desktop)
+
+Driver installation is automated in `install.sh` for the desktop machine (detected by product UUID). Manual steps are not needed on reinstall.
+
+### How it works
+- RPM Fusion non-free is enabled by install.sh
+- `akmod-nvidia` is installed; the kernel module compiles in the background
+- install.sh polls until the module RPM appears, then prompts for reboot
+- **Secure Boot must be disabled** — the proprietary module won't load with SB on
+
+### Verify drivers are loaded after install/reboot
+```sh
+nvidia-smi           # should show GPU and driver version
+modinfo -F version nvidia  # should print driver version
+```
+
+### If the module didn't compile
+```sh
+sudo akmods --force
+sudo reboot
+```
 
 ---
 

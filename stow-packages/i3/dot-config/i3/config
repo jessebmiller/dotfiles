@@ -15,14 +15,18 @@ set $menu rofi -show drun
 
 ### Startup
 
+# Set display resolution and refresh rate
+exec --no-startup-id bash -c 'xrandr | grep -q "^HDMI-0 connected" && xrandr --output HDMI-0 --mode 3440x1440 --rate 143.97'
+
 # Lock on suspend and lid close
 exec --no-startup-id xss-lock -- i3lock -c 000000
 
 # Launch apps onto their default workspaces at startup (no assign rules, so
-# additional instances can be opened freely on any workspace)
-exec --no-startup-id i3-msg 'workspace number 1; exec brave-browser'
-exec --no-startup-id i3-msg 'workspace number 2; exec discord'
-exec --no-startup-id i3-msg 'workspace number 3; exec alacritty'
+# additional instances can be opened freely on any workspace).
+# Staggered to avoid race condition on simultaneous workspace switches.
+exec --no-startup-id bash -c 'i3-msg "workspace number 1; exec brave-browser"'
+exec --no-startup-id bash -c 'sleep 1 && i3-msg "workspace number 2; exec Discord"'
+exec --no-startup-id bash -c 'sleep 2 && i3-msg "workspace number 3; exec alacritty"'
 
 # Remove title bars and borders; bump to pixel 1 if borderless is too hard to navigate
 default_border none

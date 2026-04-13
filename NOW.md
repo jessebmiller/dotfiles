@@ -63,10 +63,10 @@ Fresh Fedora install on desktop. Base: **Fedora i3 Spin ISO**.
 - WM: i3 (included in spin)
 
 **Steps**:
-- [ ] Install from Fedora i3 Spin ISO
-- [ ] Run install.sh
-- [ ] Stow dotfiles: nvim, alacritty, i3
-- [ ] Verify NVIDIA drivers installed and X11 working
+- [x] Install from Fedora i3 Spin ISO
+- [x] Run install.sh
+- [x] Stow dotfiles: nvim, alacritty, i3
+- [x] Verify NVIDIA drivers installed and X11 working (akmod-nvidia, RTX 3060 Ti confirmed)
 - [ ] **Manual**: Install 1Password browser extension in Brave
 - [ ] **Manual**: Set Brave default search engine
 - [ ] **Manual**: Log in to cloud services (GitHub, Google, etc.)
