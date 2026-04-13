@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# desktop uuid 5a94f7f3-d3e4-82df-11ee-04421ae78b7b /sys/class/dmi/id/product_serial
+# desktop uuid 5a94f7f3-d3e4-82df-11ee-04421ae78b7b /sys/class/dmi/id/product_uuid
 
 set -e
 
@@ -75,11 +75,34 @@ stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
 
 # Machine-specific config
-SERIAL="$(cat /sys/class/dmi/id/product_serial 2>/dev/null || true)"
-DESKTOP_SERIAL="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
+DESKTOP_UUID="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
 LAPTOP_SERIAL="C02RG1V0G941"
 
-if [ "$SERIAL" = "$LAPTOP_SERIAL" ]; then
+THIS_UUID="$(sudo cat /sys/class/dmi/id/product_uuid 2>/dev/null || true)"
+THIS_SERIAL="$(sudo cat /sys/class/dmi/id/product_serial 2>/dev/null || true)"
+
+echo $THIS_UUID ":" $DESKTOP_UUID
+
+if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
+    # NVIDIA drivers for RTX 3060 Ti
+    # RPM Fusion non-free must be configured (done above)
+    # Requires Secure Boot disabled — driver module won't load if SB is on
+    sudo dnf update -y  # avoid kernel/driver version mismatch
+    if ! rpm -q akmod-nvidia &>/dev/null; then
+        sudo dnf install -y akmod-nvidia
+    fi
+    if ! modinfo -F version nvidia &>/dev/null; then
+        echo ""
+        echo "NVIDIA: waiting for module to compile..."
+        while ! ls /var/cache/akmods/nvidia/kmod-nvidia-"$(uname -r)"-*.rpm &>/dev/null; do
+            sleep 10
+        done
+        echo "NVIDIA module ready. Reboot to load the driver: sudo reboot"
+        echo ""
+    fi
+fi
+
+if [ "$THIS_SERIAL" = "$LAPTOP_SERIAL" ]; then
     # Memory tuning for MacBook Air A1466 (4GB RAM)
     # See TROUBLESHOOTING.md for context
     :  # placeholder

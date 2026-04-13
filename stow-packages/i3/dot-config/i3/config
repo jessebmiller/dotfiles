@@ -18,16 +18,14 @@ set $menu rofi -show drun
 # Lock on suspend and lid close
 exec --no-startup-id xss-lock -- i3lock -c 000000
 
-# Launch apps into their assigned workspaces
-exec --no-startup-id brave-browser
-exec --no-startup-id discord
-exec --no-startup-id alacritty
+# Launch apps onto their default workspaces at startup (no assign rules, so
+# additional instances can be opened freely on any workspace)
+exec --no-startup-id i3-msg 'workspace number 1; exec brave-browser'
+exec --no-startup-id i3-msg 'workspace number 2; exec discord'
+exec --no-startup-id i3-msg 'workspace number 3; exec alacritty'
 
-### Workspace assignments
-
-assign [class="Brave-browser"] 1
-assign [class="discord"] 2
-assign [class="Alacritty"] 3
+# Remove title bars and borders; bump to pixel 1 if borderless is too hard to navigate
+default_border none
 
 ### Key bindings
 
