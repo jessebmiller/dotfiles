@@ -127,3 +127,15 @@ if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
         echo ""
     fi
 fi
+
+cat << 'EOF'
+
+        *         .           *        .          *
+   .         *        .               .      *
+          .       ____                    .
+    *           /|_||_\`.__          *           .
+           .   (   _    _ _\              .
+         .     =`-(_)--(_)-'   MACHINE CONFIGURED
+    .                                          *
+             .        *            .
+EOF
