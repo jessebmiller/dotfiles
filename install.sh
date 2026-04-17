@@ -40,6 +40,7 @@ sudo dnf install -y \
   git \
   rofi \
   xclip \
+  brightnessctl \
   brave-browser \
   discord \
   steam \
@@ -134,6 +135,14 @@ if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
         echo "NVIDIA module ready. Reboot to load the driver: sudo reboot"
         echo ""
     fi
+
+    # Satisfactory Mod Manager — always fetches latest release from GitHub
+    mkdir -p "$HOME/.local/bin"
+    SMM_URL=$(curl -s https://api.github.com/repos/satisfactorymodding/SatisfactoryModManager/releases/latest \
+        | python3 -c "import sys,json; assets=json.load(sys.stdin)['assets']; \
+          print(next(a['browser_download_url'] for a in assets if a['name'].endswith('linux_amd64.AppImage')))")
+    curl -L "$SMM_URL" -o "$HOME/.local/bin/SatisfactoryModManager"
+    chmod +x "$HOME/.local/bin/SatisfactoryModManager"
 fi
 
 if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
@@ -159,6 +168,15 @@ if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
         echo "Broadcom module ready. Reboot when ready: sudo reboot"
         echo ""
     fi
+
+    # Lid close → suspend
+    sudo mkdir -p /etc/systemd/logind.conf.d
+    echo -e "[Login]\nHandleLidSwitch=suspend\nHandleLidSwitchExternalPower=suspend" \
+        | sudo tee /etc/systemd/logind.conf.d/lid.conf > /dev/null
+    sudo systemctl restart systemd-logind
+
+    # brightnessctl needs video group for backlight writes without sudo
+    sudo usermod -aG video "$USER"
 fi
 
 cat << 'EOF'
