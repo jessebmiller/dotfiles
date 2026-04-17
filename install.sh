@@ -1,9 +1,25 @@
-#!/bin/bash
+
 
 # desktop uuid 5a94f7f3-d3e4-82df-11ee-04421ae78b7b /sys/class/dmi/id/product_uuid
 # laptop uuid  6a1a3f4f-3c9a-5870-9c54-93faea5bbc64 /sys/class/dmi/id/product_uuid
 
 set -e
+
+# Btrfs snapshot before making any changes (requires snapper with a "root" config)
+if command -v snapper &>/dev/null && sudo snapper -c root list &>/dev/null 2>&1; then
+    echo "Taking pre-install Btrfs snapshot..."
+    SNAP_NUM=$(sudo snapper -c root create \
+        --type pre \
+        --cleanup-algorithm number \
+        --print-number \
+        --description "pre install.sh $(date -Iseconds)")
+    echo "Snapshot #$SNAP_NUM created."
+    echo "Cleaning up old snapshots..."
+    sudo snapper -c root cleanup number
+    echo "Snapshot cleanup done."
+else
+    echo "Snapper not configured — skipping pre-install snapshot (safe to ignore on first run)."
+fi
 
 # RPM Fusion
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -19,6 +35,7 @@ sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcom
 # Packages
 sudo dnf install -y \
   stow \
+  snapper \
   neovim python3-neovim \
   git \
   rofi \
@@ -81,6 +98,15 @@ stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
 echo "Stowing i3..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
 echo "Dotfiles stowed."
+
+# Snapper config — create-config sets up the .snapshots subvolume, then we
+# overwrite the generated config with our customized version
+if ! sudo snapper list-configs | grep -q '^root'; then
+    echo "Creating snapper root config..."
+    sudo snapper -c root create-config /
+fi
+echo "Installing snapper config..."
+sudo cp "$DOTFILES_DIR/config/snapper-root" /etc/snapper/configs/root
 
 # Machine-specific config
 DESKTOP_UUID="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
