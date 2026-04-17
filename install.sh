@@ -179,6 +179,17 @@ if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
     sudo usermod -aG video "$USER"
 fi
 
+# Post-install snapshot paired with the pre snapshot taken at the top
+if [ -n "${SNAP_NUM:-}" ]; then
+    echo "Taking post-install Btrfs snapshot..."
+    sudo snapper -c root create \
+        --type post \
+        --pre-number "$SNAP_NUM" \
+        --cleanup-algorithm number \
+        --description "post install.sh $(date -Iseconds)"
+    echo "Post snapshot created."
+fi
+
 cat << 'EOF'
 
         *         .           *        .          *
