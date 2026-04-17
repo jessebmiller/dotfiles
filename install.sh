@@ -102,7 +102,7 @@ if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
     if ! modinfo -F version nvidia &>/dev/null; then
         echo ""
         echo "NVIDIA: waiting for module to compile..."
-        while ! ls /var/cache/akmods/nvidia/kmod-nvidia-"$(uname -r)"-*.rpm &>/dev/null; do
+        while ! ls /var/cache/akmods/nvidia/kmod-nvidia-*.rpm &>/dev/null; do
             sleep 10
         done
         echo "NVIDIA module ready. Reboot to load the driver: sudo reboot"
@@ -127,7 +127,7 @@ if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
         echo "WiFi profile saved."
         echo ""
         echo "Broadcom: waiting for module to compile..."
-        while ! ls /var/cache/akmods/wl/kmod-wl-"$(uname -r)"-*.rpm &>/dev/null; do
+        while ! ls /var/cache/akmods/wl/kmod-wl-*.rpm &>/dev/null; do
             sleep 10
         done
         echo "Broadcom module ready. Reboot when ready: sudo reboot"
