@@ -34,6 +34,8 @@ sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcom
 
 # Packages
 sudo dnf install -y \
+  nmap \
+  fuse \
   stow \
   snapper \
   neovim python3-neovim \
@@ -108,6 +110,21 @@ if ! sudo snapper list-configs | grep -q '^root'; then
 fi
 echo "Installing snapper config..."
 sudo cp "$DOTFILES_DIR/config/snapper-root" /etc/snapper/configs/root
+echo "Snapper config installed."
+
+# Affinity (Designer/Photo/Publisher) — always fetches latest release from GitHub
+mkdir -p "$HOME/.local/bin"
+if [ ! -f "$HOME/.local/bin/Affinity" ]; then
+    echo "Installing Affinity..."
+    AFFINITY_URL=$(curl -s https://api.github.com/repos/ryzendew/Linux-Affinity-Installer/releases/latest \
+        | python3 -c "import sys,json; assets=json.load(sys.stdin)['assets']; \
+          print(next(a['browser_download_url'] for a in assets if a['name'].endswith('.AppImage')))")
+    curl -L --progress-bar "$AFFINITY_URL" -o "$HOME/.local/bin/Affinity"
+    chmod +x "$HOME/.local/bin/Affinity"
+    echo "Affinity installed."
+else
+    echo "Affinity already installed, skipping."
+fi
 
 # Machine-specific config
 DESKTOP_UUID="5a94f7f3-d3e4-82df-11ee-04421ae78b7b"
@@ -137,12 +154,17 @@ if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
     fi
 
     # Satisfactory Mod Manager — always fetches latest release from GitHub
-    mkdir -p "$HOME/.local/bin"
-    SMM_URL=$(curl -s https://api.github.com/repos/satisfactorymodding/SatisfactoryModManager/releases/latest \
-        | python3 -c "import sys,json; assets=json.load(sys.stdin)['assets']; \
-          print(next(a['browser_download_url'] for a in assets if a['name'].endswith('linux_amd64.AppImage')))")
-    curl -L "$SMM_URL" -o "$HOME/.local/bin/SatisfactoryModManager"
-    chmod +x "$HOME/.local/bin/SatisfactoryModManager"
+    if [ ! -f "$HOME/.local/bin/SatisfactoryModManager" ]; then
+        echo "Installing Satisfactory Mod Manager..."
+        SMM_URL=$(curl -s https://api.github.com/repos/satisfactorymodding/SatisfactoryModManager/releases/latest \
+            | python3 -c "import sys,json; assets=json.load(sys.stdin)['assets']; \
+              print(next(a['browser_download_url'] for a in assets if a['name'].endswith('linux_amd64.AppImage')))")
+        curl -L --progress-bar "$SMM_URL" -o "$HOME/.local/bin/SatisfactoryModManager"
+        chmod +x "$HOME/.local/bin/SatisfactoryModManager"
+        echo "Satisfactory Mod Manager installed."
+    else
+        echo "Satisfactory Mod Manager already installed, skipping."
+    fi
 fi
 
 if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
