@@ -87,6 +87,14 @@ if ! command -v claude &>/dev/null; then
   npm install -g @anthropic-ai/claude-code
 fi
 
+# Ollama (local LLM runtime)
+if ! command -v ollama &>/dev/null; then
+    echo "Installing Ollama..."
+    curl -fsSL https://ollama.com/install.sh | sh
+fi
+sudo systemctl enable --now ollama
+ollama pull gemma4
+
 # Stow dotfiles
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 cd "$DOTFILES_DIR"
