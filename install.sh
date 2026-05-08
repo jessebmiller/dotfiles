@@ -35,7 +35,7 @@ sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcom
 # Packages
 sudo dnf install -y \
   nmap \
-  fuse \
+  fuse fuse-libs \
   stow \
   snapper \
   neovim python3-neovim \
