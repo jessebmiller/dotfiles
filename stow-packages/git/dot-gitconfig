@@ -1,0 +1,7 @@
+[user]
+	email = jesse@jessebmiller.com
+	name = Jesse B. Miller
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

@@ -29,6 +29,9 @@ sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-non
 sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager addrepo --overwrite --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
+# Update system packages
+sudo dnf update -y
+
 # Build deps for alacritty (installed via cargo)
 sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
 
@@ -46,12 +49,8 @@ sudo dnf install -y \
   brave-browser \
   discord \
   steam \
-  nodejs npm
-
-# Git global config
-git config --global user.email "jesse@jessebmiller.com"
-git config --global user.name "Jesse B. Miller"
-git config --global pull.rebase true
+  nodejs npm \
+  golang
 
 # SSH key
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
@@ -82,7 +81,11 @@ fi
 cargo install alacritty
 cargo install mdbook
 
-npm config set prefix "$HOME/.local"
+if ! command -v pina &> /dev/null; then
+  echo "Installing pina"
+  go install github.com/jessebmiller/pina@latest
+fi
+
 if ! command -v claude &>/dev/null; then
   npm install -g @anthropic-ai/claude-code
 fi
@@ -93,7 +96,7 @@ if ! command -v ollama &>/dev/null; then
     curl -fsSL https://ollama.com/install.sh | sh
 fi
 sudo systemctl enable --now ollama
-ollama pull gemma4
+ollama list | grep -q '^gemma4' || ollama pull gemma4
 
 # Stow dotfiles
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
@@ -101,6 +104,8 @@ cd "$DOTFILES_DIR"
 
 # Remove default configs installed by the spin that would block stow
 rm -f "$HOME/.config/i3/config"
+rm -f "$HOME/.gitconfig"
+rm -f "$HOME/.npmrc"
 
 echo "Stowing nvim..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" nvim
@@ -108,6 +113,12 @@ echo "Stowing alacritty..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" alacritty
 echo "Stowing i3..."
 stow --dotfiles --restow -d stow-packages -t "$HOME" i3
+echo "Stowing shell..."
+stow --dotfiles --restow -d stow-packages -t "$HOME" shell
+echo "Stowing git..."
+stow --dotfiles --restow -d stow-packages -t "$HOME" git
+echo "Stowing npm..."
+stow --dotfiles --restow -d stow-packages -t "$HOME" npm
 echo "Dotfiles stowed."
 
 # Snapper config — create-config sets up the .snapshots subvolume, then we
@@ -143,12 +154,12 @@ THIS_UUID="$(sudo cat /sys/class/dmi/id/product_uuid 2>/dev/null || true)"
 echo "Machine UUID: $THIS_UUID"
 
 if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
-    echo "Detected: desktop — installing NVIDIA drivers..."
+    echo "Detected: desktop"
     # NVIDIA drivers for RTX 3060 Ti
     # RPM Fusion non-free must be configured (done above)
     # Requires Secure Boot disabled — driver module won't load if SB is on
-    sudo dnf update -y  # avoid kernel/driver version mismatch
     if ! rpm -q akmod-nvidia &>/dev/null; then
+        echo "Installing NVIDIA drivers..."
         sudo dnf install -y akmod-nvidia
     fi
     if ! modinfo -F version nvidia &>/dev/null; then
@@ -176,10 +187,10 @@ if [ "$THIS_UUID" = "$DESKTOP_UUID" ]; then
 fi
 
 if [ "$THIS_UUID" = "$LAPTOP_UUID" ]; then
-    echo "Detected: laptop — installing Broadcom drivers..."
+    echo "Detected: laptop"
     # Broadcom wireless — requires RPM Fusion non-free (configured above)
-    sudo dnf update -y  # avoid kernel/driver version mismatch
     if ! rpm -q akmod-wl &>/dev/null; then
+        echo "Installing Broadcom drivers..."
         sudo dnf install -y akmod-wl
     fi
     if ! modinfo -F version wl &>/dev/null; then
